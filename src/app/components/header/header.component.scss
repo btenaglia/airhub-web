@@ -1,15 +1,17 @@
 .header {
-    display: flex;
+    display: grid;
     background-color: #193318;
     padding: 10px 80px;
     color: white;
     position: relative;
+    grid-template-columns: 150px 1fr;
 
     .menu {
         width: 100%;
         display: grid;
         font-family: sans-serif;
         font-weight: 600;
+        padding: 0 20px;
 
         .tel {
             width: 100%;
@@ -19,31 +21,35 @@
         .title {
             width: 100%;
             position: relative;
-            &::after {
-                content: "";
-                /* width: 10px; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            label {
+                font-size: 2em;
+                font-style: italic;
+            }
+
+            span {
+
                 height: 3px;
                 background: white;
-                position: absolute;
                 width: 100%;
-                /* top: 50%; */
-                justify-items: center;
-                display: flex;
-
-
+                top: 5px;
+                margin-left: 10px;
             }
         }
+    }
 
 
-        .menu-bar {
-            width: 100%;
-            display: flex;
-            justify-content: flex-end;
-            position: relative;
+    .menu-bar {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        position: relative;
 
-            li {
-                display: flex
-            }
+        li {
+            display: flex
         }
     }
 }
