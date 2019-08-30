@@ -1,0 +1,24 @@
+<div class="tabs">
+
+    <div class="header">
+        <label for="request" (click)="changeState(1)" [ngClass]="{'active' : active == 1 }">Request Charter</label>
+        <label for="request" (click)="changeState(2)" [ngClass]="{'active' : active == 2 }">Book Seats</label>
+    </div>
+
+    <div class="body">
+        <div class="charter">
+
+            <div class="form-charter" [ngClass]="{'active' : active == 1 }">
+                <input type="text" placeholder="Name">
+                <input type="text" placeholder="Name">
+                <input type="text" placeholder="Name">
+                <input type="text" placeholder="Name">
+            </div>
+
+
+        </div>
+        <div class="book" [ngClass]="{'active' : active == 2 }">
+            Empty yet.
+        </div>
+    </div>
+</div>

@@ -5,6 +5,7 @@ import { GeneralComponent } from "./general/general.component";
 import { Routes, RouterModule } from "@angular/router";
 import { HeaderComponent } from "../components/header/header.component";
 import { FooterComponent } from "../components/footer/footer.component";
+import { BookComponent } from '../components/book/book.component';
 
 const routes: Routes = [
   {
@@ -23,7 +24,8 @@ const routes: Routes = [
     HomeComponent,
     GeneralComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    BookComponent
   ],
   imports: [CommonModule, RouterModule.forChild(routes)]
 })
