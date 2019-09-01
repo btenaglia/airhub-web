@@ -36,16 +36,6 @@
                 visibility: visible
             }
 
-            select {
-                background: url(/assets/images/landing/fromto.png) no-repeat right #fff;
-                -webkit-appearance: none;
-                background-position-x: 98%;
-                background-size: 15px;
-                // .plane{
-                //     background: url(/assets/images/landing/from.png) no-repeat left #fff;
-                // }
-            }
-
             .control {
                 display: flex;
                 align-items: center;
@@ -58,34 +48,43 @@
                 }
 
                 input {
+
+                    border: none;
+                }
+
+                input[type=text] {
                     color: #0b3951;
                     font-weight: 600;
                     height: 40px;
-                    
-                    border: none;
-                    &:focus{
-                        outline:none;
+
+                    &:focus {
+                        outline: none;
                     }
+
                     &::placeholder {
                         color: #0b3951;
                     }
 
                 }
+
+                select {
+                    background: url(/assets/images/landing/fromto.png) no-repeat right #fff;
+                    -webkit-appearance: none;
+                    background-position-x: 98%;
+                    background-size: 15px;
+                    width: 70%;
+                    border: none;
+                    height: 50px;
+                    color: #0b3951;
+                    font-weight: 600;
+                    &:focus {
+                        outline: none;
+                    }
+                }
+
             }
 
-            // input {
-            //     line-height: 40px;
-            //     color: #0b3951;
-            //     font-weight: 600;
-            //     border: none;
-            //     padding: 10px;
-            //     margin: 0 5px;
-            //     width: 90%;
 
-            //     &::placeholder {
-            //         color: #0b3951;
-            //     }
-            // }
         }
 
         .book {
