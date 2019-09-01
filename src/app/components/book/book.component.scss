@@ -21,34 +21,76 @@
 
     .body {
         background: #dbebfa;
+        box-shadow: 1px 1px 10px #377d40;
         min-height: 200px;
         padding: 30px 5px;
 
         .form-charter {
-            display: flex;
+            display: grid;
             visibility: hidden;
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 10px;
 
             &.active {
                 visibility: visible
             }
 
-            input {
-                line-height: 40px;
-                color: #0b3951;
-                font-weight: 600;
-                border: none;
-                padding: 10px;
-                margin: 0 5px;
-                width: 100%;
+            select {
+                background: url(/assets/images/landing/fromto.png) no-repeat right #fff;
+                -webkit-appearance: none;
+                background-position-x: 98%;
+                background-size: 15px;
+                // .plane{
+                //     background: url(/assets/images/landing/from.png) no-repeat left #fff;
+                // }
+            }
 
-                &::placeholder {
+            .control {
+                display: flex;
+                align-items: center;
+                height: 50px;
+                background: white;
+                justify-content: space-around;
+
+                img {
+                    // position: absolute;
+                }
+
+                input {
                     color: #0b3951;
+                    font-weight: 600;
+                    height: 40px;
+                    
+                    border: none;
+                    &:focus{
+                        outline:none;
+                    }
+                    &::placeholder {
+                        color: #0b3951;
+                    }
+
                 }
             }
+
+            // input {
+            //     line-height: 40px;
+            //     color: #0b3951;
+            //     font-weight: 600;
+            //     border: none;
+            //     padding: 10px;
+            //     margin: 0 5px;
+            //     width: 90%;
+
+            //     &::placeholder {
+            //         color: #0b3951;
+            //     }
+            // }
         }
 
         .book {
             visibility: hidden;
+
             &.active {
                 visibility: visible
             }
