@@ -9,10 +9,11 @@
             cursor: pointer;
             display: inline;
             padding: 20px 40px;
+            color: #193318;
             background-color: #b5d9fd;
 
             &.active {
-
+                text-decoration: underline;
                 background-color: #dbebfa;
             }
         }
@@ -29,7 +30,6 @@
             display: grid;
             visibility: hidden;
             grid-template-columns: repeat(4, 1fr);
-
             gap: 10px;
 
             &.active {
@@ -42,24 +42,21 @@
                 height: 50px;
                 background: white;
                 justify-content: space-around;
-
-                img {
-                    // position: absolute;
-                }
+                padding: 5px;
 
                 input {
-
+                    background: white;
                     border: none;
+                    width: 90%;
+                    &:focus {
+                        outline: none;
+                    }
                 }
 
                 input[type=text] {
                     color: #0b3951;
                     font-weight: 600;
                     height: 40px;
-
-                    &:focus {
-                        outline: none;
-                    }
 
                     &::placeholder {
                         color: #0b3951;
@@ -77,6 +74,7 @@
                     height: 50px;
                     color: #0b3951;
                     font-weight: 600;
+
                     &:focus {
                         outline: none;
                     }
@@ -93,6 +91,40 @@
             &.active {
                 visibility: visible
             }
+        }
+    }
+}
+
+@media (max-width : 921px) {
+    .tabs {
+        .body {
+            .form-charter {
+                grid-template-columns: repeat(2, 1fr);
+
+                .control {
+                    justify-content: space-between;
+                }
+            }
+
+        }
+    }
+
+}
+
+@media (max-width:504px) {
+    .tabs {
+        .header {
+            display: flex;
+            height: auto;
+        }
+
+        .body {
+            .form-charter {
+                grid-template-columns: repeat(1, 1fr);
+
+
+            }
+
         }
     }
 }
