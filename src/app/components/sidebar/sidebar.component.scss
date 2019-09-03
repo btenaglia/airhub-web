@@ -1,0 +1,50 @@
+.sidebar {
+    width: 85%;
+    height: 100%;
+    background: #193318;
+    z-index: 10;
+    position: fixed;
+    top: 0;
+    left: -85%;
+    transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+    &.active {
+        left: 0
+    }
+
+    .sdr-head {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin: 20px;
+
+        label {
+            font-size: 1.5em;
+            color: white;
+            font-weight: 600;
+            font-style: italic;
+        }
+
+        .fa-close {
+            font-size: 40px;
+            color: white;
+        }
+    }
+
+    ul {
+
+        margin: 50px 0;
+        color: white;
+        list-style: none;
+
+        li {
+            font-size: 1.5em;
+            font-weight: 600;
+            margin: 20px;
+        }
+
+        .inner {
+            font-size: 1em;
+        }
+    }
+}
