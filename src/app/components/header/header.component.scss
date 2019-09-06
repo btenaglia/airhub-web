@@ -6,6 +6,10 @@
     position: relative;
     grid-template-columns: 150px 1fr;
 
+    img {
+        cursor: pointer
+    }
+
     .menu {
         width: 100%;
         display: grid;
@@ -55,8 +59,48 @@
         justify-content: flex-end;
         position: relative;
 
-        li {
-            display: flex
+        .primary-list {
+            display: flex;
+            list-style: none;
+            position: relative;
+
+            li {
+                margin: 0 20px;
+                cursor: pointer;
+
+                &:focus {
+                    outline: none
+                }
+
+                &:last-child {
+                    margin-right: 0
+                }
+            }
+
+            .inner-list {
+                visibility: hidden;
+                opacity: 0;
+                transform: translate3d(-40%, 0, 0);
+                position: absolute;
+                background: #dbebfa;
+                list-style: none;
+                padding: 0;
+                top: 25px;
+                z-index: 10;
+                transition: .7s cubic-bezier(0.075, 0.82, 0.165, 1);
+                box-shadow: 1px 1px 10px #1d1c1c54;
+                &.active {
+                    visibility: visible;
+                    opacity: 1;
+                    transform: translate3d(0, 0, 0);
+                }
+
+                li {
+                    color: #063853;
+                    padding: 15px
+                }
+
+            }
         }
     }
 
@@ -80,7 +124,8 @@
         img {
             width: 90px;
         }
-        &{
+
+        & {
             grid-template-columns: 100px 1fr;
         }
     }

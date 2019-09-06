@@ -25,7 +25,8 @@
                 gap: 15px;
 
                 img {
-                    width: 20px
+                    width: 20px;
+                    
                 }
 
                 span {
@@ -50,7 +51,8 @@
                 .apps {
                     img {
                         height: 30px;
-                        width: auto
+                        width: auto;
+                        cursor: pointer;
                     }
 
                     .app {
@@ -63,6 +65,7 @@
                 }
 
                 button {
+                    cursor: pointer;
                     border-radius: 5px;
                     border: none;
                     padding: 10px 30px;
