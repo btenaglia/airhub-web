@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   position: relative;
-  margin: 40px;
+  margin: 60px;
   grid-template-areas: "info image";
 
   .info {
@@ -11,7 +11,7 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    left: 30%;
+    
     justify-content: center;
 
     h2 {
@@ -29,9 +29,11 @@
   }
 
   img {
-    grid-area:image;
-    width: 100%;
+    grid-area: image;
+    width: 120%;
+    -o-object-fit: fill;
     object-fit: fill;
+    margin-left: -20%;
   }
 
   @media (max-width:842px) {
@@ -46,6 +48,7 @@
         -o-object-fit: fill;
         object-fit: cover;
         width: 100%;
+        margin-left: 0%
       }
       .info {
         left: 0;
