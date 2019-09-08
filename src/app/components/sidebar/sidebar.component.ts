@@ -18,6 +18,8 @@ export class SidebarComponent implements OnInit {
     })
   }
   close(){
+    
     this.srv.activeSidebar(false)
   }
+  
 }

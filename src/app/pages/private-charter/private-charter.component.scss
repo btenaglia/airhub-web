@@ -109,151 +109,51 @@ h2 {
 
 }
 
-section {
-  .title {
-    position: relative;
-    top: -145px;
-  }
 
-  background: #dbebfa;
-  margin-top: 200px;
-
-  .app-container {
-    display: flex;
-    margin: 60px;
-    position: relative;
-    top: -150px;
-
-    .phone {
-      object-fit: contain;
-    }
-
-    .info {
-      margin: 0 30px;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-around;
-
-      .texto {
-        background: #193318;
-        color: white;
-        padding: 20px;
-        font-size: 1.5em;
-        margin: 0 auto;
-      }
-
-      .apps {
-        display: flex;
-
-        .app {
-          margin: 0 10px;
-
-        }
-      }
-    }
-
-    @media (max-width:820px) {
-      & {
-        flex-wrap: wrap;
-
-        .phone {
-          width: 100%;
-        }
-
-        .info {
-          width: 100%;
-          margin: 0;
-
-          .apps {
-            display: block;
-
-          }
-        }
-      }
-    }
-  }
-}
-
-.types {
-  margin: 60px;
-
-  img {
-    width: 100%;
-    object-fit: cover;
-  }
-
-  @media (max-width:820px) {
-    & {
-      white-space: nowrap;
-      overflow-x: scroll;
-      margin: 0;
-
-      img {
-        width: 1500px;
-        margin: 15px;
-      }
-    }
-  }
-}
-
-.text-info {
-  text-align: center;
-  margin: 0 60px;
-
-  p {
-    color: #0b3951
-  }
-}
 
 .pictures {
-  margin-top: 100px;
+  position: relative;
+
+  .wallpaper {
+    height: 80%;
+    top: 10%;
+    width: 100%;
+    position: absolute;
+    background: #dbebfa;
+    z-index: -1;
+  }
+
+  margin-bottom:40px;
 
   .pic {
 
-    display: flex;
+    display: grid;
     margin: 0 60px;
-    justify-content: space-between;
+    grid-template-columns: repeat(2, 50%);
 
-    div:first-child {
-      position: relative;
-      width: 60%;
-      top: -30px;
-      display: block;
+    .one {
+      margin: 5px;
 
-      div {
-        /* height: 50%; */
-        width: 300px;
-        right: 0;
-        position: absolute;
+      .texto {
+        width: 50%;
         background: #19321c;
-        color: #fff;
+        color: white;
         padding: 10px;
-        text-align: center;
-
+        margin: 10px;
+        font-size: 1.2em;
+        text-align: center
       }
 
       img {
         width: 100%;
-      }
-
-    }
-
-    img {
-
-      &:last-child {
-        width: 35%;
-        position: relative;
-        top: 30px;
       }
     }
 
     @media (max-width:725px) {
       & {
-        display: block;
         width: 100%;
         margin: 0px;
-
+        grid-template-columns: 1fr;
         div:first-child {
           width: 100%;
           top: 0;

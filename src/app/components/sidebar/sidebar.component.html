@@ -1,4 +1,3 @@
-
 <div class="sidebar" [ngClass]="{'active' : visible}">
 
   <div class="sdr-head">
@@ -7,15 +6,15 @@
     <i class="fa fa-close" (click)="close()"></i>
   </div>
   <ul>
-    <li>ABOUT US </li>
-    <li>OUR FLEET </li>
+    <li routerLink="/about-us" (click)="close()" routerLinkActive="active">ABOUT US </li>
+    <li routerLink="/our-fleet" (click)="close()" routerLinkActive="active">OUR FLEET </li>
     <li>SERVICES
       <ul>
-        <li class="inner">Charter Club</li>
-        <li class="inner">Private Charter</li>
-        <li class="inner">Air Freight</li>
+        <li routerLink="/charter-club" (click)="close()" class="inner">Charter Club</li>
+        <li routerLink="/private-charter" (click)="close()" class="inner">Private Charter</li>
+        <li routerLink="/air-freight" (click)="close()" class="inner">Air Freight</li>
       </ul>
     </li>
-    <li>CONTACT US </li>
+    <li routerLink="/contact-us" (click)="close()" routerLinkActive="active">CONTACT US </li>
   </ul>
 </div>

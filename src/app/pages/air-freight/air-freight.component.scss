@@ -1,0 +1,44 @@
+.center-grid {
+    grid-template-columns: 1fr 80px 1fr !important;
+}
+
+
+
+.lugares {
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    /* width: 100%; */
+    margin: 0 60px;
+
+    .info-lugares {
+        width: 50%;
+        background: #dbebfa;
+        margin: 10px 5px;
+
+        padding: 40px;
+        background: #dbebfa;
+
+        .contact-info {
+            width: 50%;
+            gap: 20px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            justify-items: center;
+        }
+    }
+
+    @media (max-width: 838px) {
+        flex-wrap: wrap;
+        margin:0;
+        .info-lugares{
+            width: 100%;
+            .contact-info{
+                width: 100%;
+            }
+        }
+      
+    }
+}

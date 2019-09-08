@@ -27,15 +27,37 @@
         min-height: 200px;
         padding: 30px 5px;
 
-        .form-charter {
-            display: grid;
-            visibility: hidden;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 10px;
+        .charter {
+            display: none;
+            min-height: 200px;
 
             &.active {
-                visibility: visible
+                display: block
             }
+
+            button {
+                bottom: 0;
+                width: 200px;
+                position: relative;
+                cursor: pointer;
+                border-radius: 5px;
+                border: none;
+                padding: 10px 30px;
+                box-shadow: 5px 5px 8px black;
+                color: white;
+                background: #19321c;
+                position: relative;
+                display: block;
+                margin: 10px auto;
+
+            }
+        }
+
+        .form-charter {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            width: 99%;
 
             .control {
                 display: flex;
@@ -49,6 +71,7 @@
                     background: white;
                     border: none;
                     width: 85%;
+
                     &:focus {
                         outline: none;
                     }
@@ -87,10 +110,35 @@
         }
 
         .book {
-            visibility: hidden;
+            display: none;
+            min-height: 200px;
+
+            .form-charter {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            flex-direction: column;
+            justify-content: space-between;
 
             &.active {
-                visibility: visible
+                display: flex;
+            }
+
+            button {
+                bottom: 0;
+                width: 150px;
+                position: relative;
+                cursor: pointer;
+                border-radius: 5px;
+                border: none;
+                padding: 10px 30px;
+                box-shadow: 5px 5px 8px black;
+                color: white;
+                background: #19321c;
+                position: relative;
+                display: block;
+                margin: 10px auto;
+
             }
         }
     }

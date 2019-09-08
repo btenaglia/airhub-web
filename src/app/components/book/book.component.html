@@ -6,9 +6,9 @@
     </div>
 
     <div class="body">
-        <div class="charter">
+        <div class="charter" [ngClass]="{'active' : active == 1 }">
 
-            <div class="form-charter" [ngClass]="{'active' : active == 1 }">
+            <div class="form-charter">
 
                 <div class="control">
 
@@ -38,14 +38,14 @@
                 </div>
 
                 <div class="control">
-                        <img src="/assets/images/landing/to.png" alt="">
-                        <select>
-                            <option>Hyannis</option>
-                            <option>Nantucket</option>
-                            <option value="">Martha's Vineyard</option>
-                            <option value="">White Plains, NY</option>
-                        </select>
-                    </div>
+                    <img src="/assets/images/landing/to.png" alt="">
+                    <select>
+                        <option>Hyannis</option>
+                        <option>Nantucket</option>
+                        <option value="">Martha's Vineyard</option>
+                        <option value="">White Plains, NY</option>
+                    </select>
+                </div>
                 <!-- <input type="text" placeholder="Name"> -->
 
                 <div class="control">
@@ -63,11 +63,47 @@
                 </div>
 
             </div>
-
+            <button>Request Charter</button>
 
         </div>
         <div class="book" [ngClass]="{'active' : active == 2 }">
-            Empty yet.
+            <div class="form-charter">
+
+
+                <div class="control">
+                    <img src="/assets/images/landing/from.png" alt="">
+                    <select>
+                        <option>Hyannis</option>
+                        <option>Nantucket</option>
+                        <option value="">Martha's Vineyard</option>
+                        <option value="">White Plains, NY</option>
+                    </select>
+                </div>
+
+                <div class="control">
+                    <img src="/assets/images/landing/to.png" alt="">
+                    <select>
+                        <option>Hyannis</option>
+                        <option>Nantucket</option>
+                        <option value="">Martha's Vineyard</option>
+                        <option value="">White Plains, NY</option>
+                    </select>
+                </div>
+                <!-- <input type="text" placeholder="Name"> -->
+
+                <div class="control">
+                    <img src="/assets/images/landing/calendar.png" alt="">
+                    <input type="date">
+                </div>
+
+                <div class="check">
+                    <input type="checkbox">
+                    <label for="">Flexible date</label>
+                </div>
+            </div>
+            <button>Search Flights</button>
+
+
         </div>
+        <!-- </div> -->
     </div>
-</div>
