@@ -115,13 +115,18 @@ h2 {
                 text-align: justify
             }
 
-            @media (max-width:820px) {
-                & {
-                    grid-template-columns: 1fr 40px 1fr;
-                }
-            }
+
         }
 
+        @media (max-width:820px) {
+            .item {
+                grid-template-columns: 1fr 40px 1fr;
+
+            }
+            margin: 0
+                
+            
+        }
     }
 }
 
@@ -149,7 +154,7 @@ button {
 
         p {
             color: #0b3951;
-            font-weight:600
+            font-weight: 600
         }
     }
 

@@ -11,5 +11,7 @@ export class CharterClubComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  openLink(link){
+    window.open(link,'_blank')
+  }
 }
