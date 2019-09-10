@@ -1,4 +1,6 @@
 import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
+import { ObserversService } from "src/app/services/observers.service";
 
 @Component({
   selector: "app-home",
@@ -7,7 +9,8 @@ import { Component, OnInit } from "@angular/core";
 })
 export class HomeComponent implements OnInit {
   isMobile: boolean = true;
-  constructor() {}
+
+  constructor(private route: Router) {}
 
   ngOnInit() {
     var mobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
@@ -19,5 +22,8 @@ export class HomeComponent implements OnInit {
     if (screen.width > 900) {
       this.isMobile = false;
     }
+  }
+  goTo(url) {
+    this.route.navigate([url]);
   }
 }

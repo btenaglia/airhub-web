@@ -58,14 +58,20 @@
           padding: 20px;
           display: flex;
           flex-direction: column;
-
+          
+          transition: .4s all;
+          &:hover{
+            background: #95a2af;
+          }
           h2 {
+            cursor: pointer;
             margin: 0;
             color: #063853;
             font-size: 1.5em
           }
 
           label {
+            cursor: pointer;
             margin: 10px;
             color: #19321c;
             display: flex;

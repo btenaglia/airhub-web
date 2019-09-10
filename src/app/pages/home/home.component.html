@@ -10,23 +10,23 @@
 
 
     <div class="carousel" *ngIf="!isMobile">
-      <div class="card">
+      <div class="card" >
         <img class="cover" src="/assets/images/3.jpg" alt="">
-        <div class="info">
+        <div class="info" (click)="goTo('/private-charter')">
           <h2>PRIVATE CHARTER</h2>
           <label>Request Now &nbsp;<img src="/assets/images/fromto.png" width="10" alt=""></label>
         </div>
       </div>
-      <div class="card">
+      <div class="card" >
         <img class="cover" src="/assets/images/2.jpg" alt="">
-        <div class="info">
+        <div class="info" (click)="goTo('/charter-club')">
           <h2>CHARTER CLUB</h2>
           <label>Book Seat &nbsp;<img src="/assets/images/fromto.png" width="10" alt=""></label>
         </div>
       </div>
       <div class="card">
         <img class="cover" src="/assets/images/1.jpg" alt="">
-        <div class="info">
+        <div class="info" (click)="goTo('/air-freight')">
           <h2>AIR FREIGHT</h2>
           <label>Learn More &nbsp;<img src="/assets/images/fromto.png" width="10" alt=""></label>
         </div>
@@ -38,21 +38,21 @@
       <div class="carousel-m" id="mobile">
         <div class="item">
           <img class="cover" src="/assets/images/3.jpg" alt="">
-          <div class="info">
+          <div class="info" (click)="goTo('/private-charter')">
             <h2>PRIVATE CHARTER</h2>
             <label>Request Now &nbsp;<img src="/assets/images/fromto.png" width="10" alt=""></label>
           </div>
         </div>
         <div class="item">
           <img class="cover" src="/assets/images/2.jpg" alt="">
-          <div class="info">
+          <div class="info" (click)="goTo('/charter-club')">
             <h2>CHARTER CLUB</h2>
             <label>Book Seat &nbsp;<img src="/assets/images/fromto.png" width="10" alt=""></label>
           </div>
         </div>
         <div class="item">
           <img class="cover" src="/assets/images/1.jpg" alt="">
-          <div class="info">
+          <div class="info" (click)="goTo('/air-freight')">
             <h2>AIR FREIGHT</h2>
             <label>Learn More &nbsp;<img src="/assets/images/fromto.png" width="10" alt=""></label>
           </div>
