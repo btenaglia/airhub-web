@@ -29,24 +29,20 @@
                 </div>
                 <div class="control">
                     <img src="/assets/images/landing/from.png" alt="">
-                    <select>
-                        <option>Hyannis</option>
-                        <option>Nantucket</option>
-                        <option value="">Martha's Vineyard</option>
-                        <option value="">White Plains, NY</option>
+                    <select *ngIf="places.length > 0" [value]="places[0].id">
+                        <option *ngFor="let place of places" [value]="place.id">{{place.name}}</option>
+                        <option>Other</option>
                     </select>
                 </div>
 
                 <div class="control">
                     <img src="/assets/images/landing/to.png" alt="">
-                    <select>
-                        <option>Hyannis</option>
-                        <option>Nantucket</option>
-                        <option value="">Martha's Vineyard</option>
-                        <option value="">White Plains, NY</option>
+                    <select *ngIf="places.length > 0" [value]="places[1].id">
+                        <option *ngFor="let place of places" [value]="place.id">{{place.name}}</option>
+                        <option>Other</option>
                     </select>
                 </div>
-                <!-- <input type="text" placeholder="Name"> -->
+
 
                 <div class="control">
                     <img src="/assets/images/landing/calendar.png" alt="">
@@ -72,22 +68,18 @@
 
                 <div class="control">
                     <img src="/assets/images/landing/from.png" alt="">
-                    <select>
-                        <option>Hyannis</option>
-                        <option>Nantucket</option>
-                        <option value="">Martha's Vineyard</option>
-                        <option value="">White Plains, NY</option>
-                    </select>
+                    <select *ngIf="places.length > 0" [value]="places[0].id">
+                            <option *ngFor="let place of places" [value]="place.id">{{place.name}}</option>
+                            <option>Other</option>
+                        </select>
                 </div>
 
                 <div class="control">
                     <img src="/assets/images/landing/to.png" alt="">
-                    <select>
-                        <option>Hyannis</option>
-                        <option>Nantucket</option>
-                        <option value="">Martha's Vineyard</option>
-                        <option value="">White Plains, NY</option>
-                    </select>
+                    <select *ngIf="places.length > 0" [value]="places[1].id">
+                            <option *ngFor="let place of places" [value]="place.id">{{place.name}}</option>
+                            <option>Other</option>
+                        </select>
                 </div>
                 <!-- <input type="text" placeholder="Name"> -->
 

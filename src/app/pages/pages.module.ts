@@ -5,14 +5,15 @@ import { GeneralComponent } from "./general/general.component";
 import { Routes, RouterModule } from "@angular/router";
 import { HeaderComponent } from "../components/header/header.component";
 import { FooterComponent } from "../components/footer/footer.component";
-import { BookComponent } from '../components/book/book.component';
-import { SidebarComponent } from '../components/sidebar/sidebar.component';
-import { AboutUsComponent } from './about-us/about-us.component';
-import { OurFleetComponent } from './our-fleet/our-fleet.component';
-import { ContactUsComponent } from './contact-us/contact-us.component';
-import { PrivateCharterComponent } from './private-charter/private-charter.component';
-import { CharterClubComponent } from './charter-club/charter-club.component';
-import { AirFreightComponent } from './air-freight/air-freight.component';
+import { BookComponent } from "../components/book/book.component";
+import { SidebarComponent } from "../components/sidebar/sidebar.component";
+import { AboutUsComponent } from "./about-us/about-us.component";
+import { OurFleetComponent } from "./our-fleet/our-fleet.component";
+import { ContactUsComponent } from "./contact-us/contact-us.component";
+import { PrivateCharterComponent } from "./private-charter/private-charter.component";
+import { CharterClubComponent } from "./charter-club/charter-club.component";
+import { AirFreightComponent } from "./air-freight/air-freight.component";
+
 
 const routes: Routes = [
   {
