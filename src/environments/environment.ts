@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  url : "http://airhub.info:8000/api/v1/public/"
+  url : "http://localhost:8000/api/v1/public/"
 };
 
 /*

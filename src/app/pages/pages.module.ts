@@ -13,7 +13,7 @@ import { ContactUsComponent } from "./contact-us/contact-us.component";
 import { PrivateCharterComponent } from "./private-charter/private-charter.component";
 import { CharterClubComponent } from "./charter-club/charter-club.component";
 import { AirFreightComponent } from "./air-freight/air-freight.component";
-
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 const routes: Routes = [
   {
@@ -102,6 +102,11 @@ const routes: Routes = [
     CharterClubComponent,
     AirFreightComponent
   ],
-  imports: [CommonModule, RouterModule.forChild(routes)]
+  imports: [
+    CommonModule,
+    RouterModule.forChild(routes),
+    FormsModule,
+    ReactiveFormsModule
+  ]
 })
 export class PagesModule {}

@@ -1,5 +1,11 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 import { ApiService } from "src/app/services/api.service";
+import {
+  FormGroup,
+  FormControl,
+  FormBuilder,
+  Validators
+} from "@angular/forms";
 
 @Component({
   selector: "app-book",
@@ -10,6 +16,9 @@ export class BookComponent implements OnInit {
   public steps = [{ index: 1, name: "charter" }, { index: 2, name: "charter" }];
   public active = 1;
   public places = [];
+  @Input() formRequest: FormGroup;
+  @Output() formValues = new EventEmitter<{}>();
+
   constructor(private srv: ApiService) {}
 
   ngOnInit() {
@@ -18,5 +27,8 @@ export class BookComponent implements OnInit {
 
   changeState(active) {
     this.active = active;
+  }
+  request() {
+    this.formValues.emit(this.formRequest);
   }
 }

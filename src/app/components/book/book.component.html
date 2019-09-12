@@ -8,28 +8,27 @@
     <div class="body">
         <div class="charter" [ngClass]="{'active' : active == 1 }">
 
-            <div class="form-charter">
+            <div [formGroup]="formRequest" class="form-charter" >
 
                 <div class="control">
-
-                    <input type="text" placeholder="Name">
+                    <input type="text" formControlName="name" placeholder="Name">
                 </div>
                 <div class="control">
 
-                    <input type="text" placeholder="Last Name">
+                    <input type="text" formControlName="lastname" placeholder="Last Name">
                 </div>
                 <div class="control">
 
-                    <input type="text" placeholder="Email">
+                    <input type="text" formControlName="email" placeholder="Email">
                 </div>
 
                 <div class="control">
 
-                    <input type="text" placeholder="Phone number">
+                    <input type="text" formControlName="phone" placeholder="Phone number">
                 </div>
                 <div class="control">
                     <img src="/assets/images/landing/from.png" alt="">
-                    <select *ngIf="places.length > 0" [value]="places[0].id">
+                    <select *ngIf="places.length > 0" formControlName="origin">
                         <option *ngFor="let place of places" [value]="place.id">{{place.name}}</option>
                         <option>Other</option>
                     </select>
@@ -37,7 +36,7 @@
 
                 <div class="control">
                     <img src="/assets/images/landing/to.png" alt="">
-                    <select *ngIf="places.length > 0" [value]="places[1].id">
+                    <select *ngIf="places.length > 0" formControlName="destination">
                         <option *ngFor="let place of places" [value]="place.id">{{place.name}}</option>
                         <option>Other</option>
                     </select>
@@ -59,7 +58,7 @@
                 </div>
 
             </div>
-            <button>Request Charter</button>
+            <button type="submit" (click)="request()">Request Charter</button>
 
         </div>
         <div class="book" [ngClass]="{'active' : active == 2 }">
@@ -69,17 +68,17 @@
                 <div class="control">
                     <img src="/assets/images/landing/from.png" alt="">
                     <select *ngIf="places.length > 0" [value]="places[0].id">
-                            <option *ngFor="let place of places" [value]="place.id">{{place.name}}</option>
-                            <option>Other</option>
-                        </select>
+                        <option *ngFor="let place of places" [value]="place.id">{{place.name}}</option>
+                        <option>Other</option>
+                    </select>
                 </div>
 
                 <div class="control">
                     <img src="/assets/images/landing/to.png" alt="">
                     <select *ngIf="places.length > 0" [value]="places[1].id">
-                            <option *ngFor="let place of places" [value]="place.id">{{place.name}}</option>
-                            <option>Other</option>
-                        </select>
+                        <option *ngFor="let place of places" [value]="place.id">{{place.name}}</option>
+                        <option>Other</option>
+                    </select>
                 </div>
                 <!-- <input type="text" placeholder="Name"> -->
 
