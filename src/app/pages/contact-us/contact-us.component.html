@@ -3,18 +3,18 @@
 
   <div class="form">
     <h2>CONTACT US </h2>
-    <form action="" class="formulario">
+    <form [formGroup]="form" class="formulario">
       <div class="titulo" for="">Want to learn more about Allies Air?</div>
       <br>
       <div class="controls">
-        <input type="text" placeholder="Name">
-        <input type="text" placeholder="Email">
-        <input type="text" placeholder="Phone">
-        <textarea name="" id="" cols="30" rows="10" placeholder="How can we help ?"></textarea>
+        <input type="text" formControlName="name" placeholder="Name">
+        <input type="email" required formControlName="email" placeholder="Email">
+        <input type="text" formControlName="phone" placeholder="Phone">
+        <textarea name="" id="" formControlName="query" cols="30" rows="10" placeholder="How can we help ?"></textarea>
 
       </div>
-      
+
     </form>
-    <button type="submit">Submit</button>
+    <button type="submit" (click)="send()">Submit</button>
   </div>
 </div>

@@ -71,7 +71,7 @@
                     background: white;
                     border: none;
                     width: 85%;
-
+                    
                     &:focus {
                         outline: none;
                     }
@@ -87,7 +87,7 @@
                     }
 
                 }
-                input[type=number]{
+                input[type=number],input[type=date],input[type=time]{
                     text-align: center;
                 }
 

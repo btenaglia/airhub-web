@@ -22,41 +22,44 @@
 <div class="charter">
   <label class="title">Book Seats</label>
 
-  <div class="form-charter">
+  
+    <div [formGroup]="seatsForm" class="form-charter">
 
 
-    <div class="control">
-      <img src="/assets/images/landing/from.png" alt="">
-      <select>
-        <option>Hyannis</option>
-        <option>Nantucket</option>
-        <option value="">Martha's Vineyard</option>
-        <option value="">White Plains, NY</option>
-      </select>
+      <div class="control">
+          <img src="/assets/images/landing/from.png" alt="">
+          <select *ngIf="places.length > 0" [value]="places[0].id" formControlName="origin">
+              <option *ngFor="let place of places" [value]="place.id">{{place.name}}</option>
+              <option value="0">Other</option>
+          </select>
+      </div>
+      <div class="control" *ngIf="seatsForm.get('origin').value == 0">
+          <img src="/assets/images/landing/from.png" alt="">
+          <input type="text" formControlName="customOrigin" placeholder="Custom Origin">
+      </div>
+      <div class="control">
+          <img src="/assets/images/landing/to.png" alt="">
+          <select *ngIf="places.length > 0" [value]="places[1].id" formControlName="destination">
+              <option *ngFor="let place of places" [value]="place.id">{{place.name}}</option>
+              <option value="0">Other</option>
+          </select>
+      </div>
+      <div class="control" *ngIf="seatsForm.get('destination').value == 0" alt="">
+          <img src="/assets/images/landing/to.png" >
+          <input type="text" formControlName="customDestination" placeholder="Custom Destination">
+      </div>
+
+      <div class="control">
+          <img src="/assets/images/landing/calendar.png" alt="">
+          <input type="date">
+      </div>
+
+      <div class="check">
+          <input type="checkbox" formControlName="flexible">
+          <label for="">Flexible date</label>
+      </div>
     </div>
-
-    <div class="control">
-      <img src="/assets/images/landing/to.png" alt="">
-      <select>
-        <option>Hyannis</option>
-        <option>Nantucket</option>
-        <option value="">Martha's Vineyard</option>
-        <option value="">White Plains, NY</option>
-      </select>
-    </div>
-    <!-- <input type="text" placeholder="Name"> -->
-
-    <div class="control">
-      <img src="/assets/images/landing/calendar.png" alt="">
-      <input type="date">
-    </div>
-
-    <div class="check">
-      <input type="checkbox">
-      <label for="">Flexible date</label>
-    </div>
-  </div>
-  <button>Search Flights</button>
+    <button>Search Flights</button>
 
 </div>
 <section>

@@ -8,7 +8,7 @@
     <div class="body">
         <div class="charter" [ngClass]="{'active' : active == 1 }">
 
-            <div [formGroup]="formRequest" class="form-charter" >
+            <div [formGroup]="formRequest" class="form-charter">
 
                 <div class="control">
                     <input type="text" formControlName="name" placeholder="Name">
@@ -30,26 +30,33 @@
                     <img src="/assets/images/landing/from.png" alt="">
                     <select *ngIf="places.length > 0" formControlName="origin">
                         <option *ngFor="let place of places" [value]="place.id">{{place.name}}</option>
-                        <option>Other</option>
+                        <option value="0">Other</option>
                     </select>
+                </div>
+                <div class="control" *ngIf="formRequest.get('origin').value == 0">
+                    <img src="/assets/images/landing/from.png" alt="">
+                    <input type="text" formControlName="customOrigin" placeholder="Custom Origin">
                 </div>
 
                 <div class="control">
                     <img src="/assets/images/landing/to.png" alt="">
                     <select *ngIf="places.length > 0" formControlName="destination">
                         <option *ngFor="let place of places" [value]="place.id">{{place.name}}</option>
-                        <option>Other</option>
+                        <option value="0">Other</option>
                     </select>
                 </div>
-
-
-                <div class="control">
-                    <img src="/assets/images/landing/calendar.png" alt="">
-                    <input type="date" placeholder="Name">
+                <div class="control" *ngIf="formRequest.get('destination').value == 0">
+                    <img src="/assets/images/landing/to.png" alt="">
+                    <input type="text" formControlName="customDestination" placeholder="Custom Destination">
                 </div>
                 <div class="control">
+                    <img src="/assets/images/landing/calendar.png" alt="">
+                    <input type="date" formControlName="dateRequest" placeholder="Name">
+                </div>
+
+                <div class="control">
                     <img src="/assets/images/landing/clock.png" alt="">
-                    <input type="date">
+                    <input type="time" formControlName="timeRequest">
                 </div>
 
                 <div class="control">
@@ -62,25 +69,31 @@
 
         </div>
         <div class="book" [ngClass]="{'active' : active == 2 }">
-            <div class="form-charter">
+            <div [formGroup]="formSeats" class="form-charter">
 
 
                 <div class="control">
                     <img src="/assets/images/landing/from.png" alt="">
-                    <select *ngIf="places.length > 0" [value]="places[0].id">
+                    <select *ngIf="places.length > 0" [value]="places[0].id" formControlName="origin">
                         <option *ngFor="let place of places" [value]="place.id">{{place.name}}</option>
-                        <option>Other</option>
+                        <option value="0">Other</option>
                     </select>
                 </div>
-
+                <div class="control" *ngIf="formSeats.get('origin').value == 0">
+                    <img src="/assets/images/landing/from.png" alt="">
+                    <input type="text" formControlName="customOrigin" placeholder="Custom Origin">
+                </div>
                 <div class="control">
                     <img src="/assets/images/landing/to.png" alt="">
-                    <select *ngIf="places.length > 0" [value]="places[1].id">
+                    <select *ngIf="places.length > 0" [value]="places[1].id" formControlName="destination">
                         <option *ngFor="let place of places" [value]="place.id">{{place.name}}</option>
-                        <option>Other</option>
+                        <option value="0">Other</option>
                     </select>
                 </div>
-                <!-- <input type="text" placeholder="Name"> -->
+                <div class="control" *ngIf="formSeats.get('destination').value == 0" alt="">
+                    <img src="/assets/images/landing/to.png" >
+                    <input type="text" formControlName="customDestination" placeholder="Custom Destination">
+                </div>
 
                 <div class="control">
                     <img src="/assets/images/landing/calendar.png" alt="">
@@ -88,7 +101,7 @@
                 </div>
 
                 <div class="check">
-                    <input type="checkbox">
+                    <input type="checkbox" formControlName="flexible">
                     <label for="">Flexible date</label>
                 </div>
             </div>

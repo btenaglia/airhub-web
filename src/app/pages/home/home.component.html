@@ -5,19 +5,19 @@
   </div>
 
   <section class="">
-    <app-book class="step" [formRequest] ="form" (formValues)="formulario($event)"></app-book>
+    <app-book class="step" [formRequest]="form" [formSeats]="Seats" [places]="places" (formValues)="formulario($event)"></app-book>
     <h2>FLY ALLIES AIR TODAY!</h2>
 
 
     <div class="carousel" *ngIf="!isMobile">
-      <div class="card" >
+      <div class="card">
         <img class="cover" src="/assets/images/3.jpg" alt="">
         <div class="info" (click)="goTo('/private-charter')">
           <h2>PRIVATE CHARTER</h2>
           <label>Request Now &nbsp;<img src="/assets/images/fromto.png" width="10" alt=""></label>
         </div>
       </div>
-      <div class="card" >
+      <div class="card">
         <img class="cover" src="/assets/images/2.jpg" alt="">
         <div class="info" (click)="goTo('/charter-club')">
           <h2>CHARTER CLUB</h2>

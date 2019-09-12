@@ -10,4 +10,8 @@ export class ApiService {
   getPlaces() {
     return this._http.get(environment.url + "places/");
   }
+
+  contact(data) {
+    return this._http.post(environment.url + "contacts/", data);
+  }
 }
