@@ -8,13 +8,17 @@
       <br>
       <div class="controls">
         <input type="text" formControlName="name" placeholder="Name">
+        <div class="error" *ngIf="form.get('name').value == '' && validate">Name is required</div>
         <input type="email" required formControlName="email" placeholder="Email">
+        <div class="error" *ngIf="form.get('email').value == '' && validate">Email is required</div>
+        <div class="error" *ngIf="!validateEmail && validate">Example: John@example.com</div>
         <input type="text" formControlName="phone" placeholder="Phone">
         <textarea name="" id="" formControlName="query" cols="30" rows="10" placeholder="How can we help ?"></textarea>
-
+        <div class="error" *ngIf="form.get('query').value == '' && validate">This is required</div>
       </div>
-
+ 
     </form>
     <button type="submit" (click)="send()">Submit</button>
+    <img src="/assets/images/spin.gif" *ngIf="sending" class="load">
   </div>
 </div>

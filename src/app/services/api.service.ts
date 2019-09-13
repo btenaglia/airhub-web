@@ -8,10 +8,10 @@ import { HttpClient } from "@angular/common/http";
 export class ApiService {
   constructor(private _http: HttpClient) {}
   getPlaces() {
-    return this._http.get(environment.url + "places/");
+    return this._http.get(environment.url + "public/places");
   }
 
   contact(data) {
-    return this._http.post(environment.url + "contacts/", data);
+    return this._http.post(environment.url + "public/contacts", data);
   }
 }

@@ -33,4 +33,7 @@ export class PrivateCharterComponent implements OnInit {
       this.formRequest.get("destination").setValue(this.places[1].id);
     });
   }
+  request(){
+    
+  }
 }

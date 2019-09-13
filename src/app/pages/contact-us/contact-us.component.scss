@@ -43,12 +43,25 @@
                 }
             }
 
+            .error {
+                color: #e08585
+            }
 
         }
 
         button {
             width: 150px;
             margin: 20px auto;
+
+            &:focus {
+                outline: none;
+
+            }
+        }
+
+        img {
+            width: 60px;
+            margin: 0 auto;
         }
     }
 

@@ -8,9 +8,12 @@ import { ApiService } from "src/app/services/api.service";
   styleUrls: ["./contact-us.component.scss"]
 })
 export class ContactUsComponent implements OnInit {
+  validate = false
+  validateEmail = false
+  sending = false
   form = new FormGroup({
     name: new FormControl('',Validators.required),
-    email: new FormControl('',Validators.required),
+    email: new FormControl('',[Validators.required,Validators.email]),
     phone: new FormControl('',Validators.required),
     query: new FormControl('',Validators.required)
   });
@@ -19,8 +22,12 @@ export class ContactUsComponent implements OnInit {
   ngOnInit() {}
 
   send() {
-    if(!this.form.valid)
-    return false;
+    if(!this.form.valid){
+      this.validateEmail = this.form.get('email').valid
+      this.validate = true
+      return false;
+    }
+    this.sending = true
     this.srv.contact(this.form.value).subscribe(data => {
       console.log(
         `%c data `,
@@ -28,6 +35,7 @@ export class ContactUsComponent implements OnInit {
         data
       );
       this.form.reset();
-    });
+      this.sending = false
+    },err => this.sending = false);
   }
 }
