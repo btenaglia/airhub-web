@@ -10,20 +10,16 @@
 
             <div [formGroup]="formRequest" class="form-charter">
 
-                <div class="control">
+                <div class="control" [ngClass]="{'active':formRequest.get('name').value == '' && validate}">
                     <input type="text" formControlName="name" placeholder="Name">
                 </div>
-                <div class="control">
-
+                <div class="control" [ngClass]="{'active':formRequest.get('lastname').value == '' && validate}">
                     <input type="text" formControlName="lastname" placeholder="Last Name">
                 </div>
-                <div class="control">
-
+                <div class="control" [ngClass]="{'active':formRequest.get('email').value == '' && validate}">
                     <input type="text" formControlName="email" placeholder="Email">
                 </div>
-
-                <div class="control">
-
+                <div class="control" [ngClass]="{'active':formRequest.get('phone').value == '' && validate}">
                     <input type="text" formControlName="phone" placeholder="Phone number">
                 </div>
                 <div class="control">
@@ -33,7 +29,8 @@
                         <option value="0">Other</option>
                     </select>
                 </div>
-                <div class="control" *ngIf="formRequest.get('origin').value == 0">
+                <div class="control" *ngIf="formRequest.get('origin').value == 0"
+                    [ngClass]="{'active':formRequest.get('customOrigin').value == '' && validate}">
                     <img src="/assets/images/landing/from.png" alt="">
                     <input type="text" formControlName="customOrigin" placeholder="Custom Origin">
                 </div>
@@ -45,7 +42,8 @@
                         <option value="0">Other</option>
                     </select>
                 </div>
-                <div class="control" *ngIf="formRequest.get('destination').value == 0">
+                <div class="control" *ngIf="formRequest.get('destination').value == 0"
+                    [ngClass]="{'active':formRequest.get('customDestination').value == '' && validate}">
                     <img src="/assets/images/landing/to.png" alt="">
                     <input type="text" formControlName="customDestination" placeholder="Custom Destination">
                 </div>
@@ -61,10 +59,12 @@
 
                 <div class="control">
                     <img src="/assets/images/landing/passenger.png" alt="">
-                    <input type="number">
+                    <input type="number" formControlName="passengers" min="1">
                 </div>
 
             </div>
+            <div class="error" *ngIf="validate">Check all the fields please</div>
+
             <button type="submit" (click)="request()">Request Charter</button>
 
         </div>
@@ -91,7 +91,7 @@
                     </select>
                 </div>
                 <div class="control" *ngIf="formSeats.get('destination').value == 0" alt="">
-                    <img src="/assets/images/landing/to.png" >
+                    <img src="/assets/images/landing/to.png">
                     <input type="text" formControlName="customDestination" placeholder="Custom Destination">
                 </div>
 

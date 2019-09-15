@@ -5,7 +5,9 @@
   </div>
 
   <section class="">
-    <app-book class="step" [formRequest]="form" [formSeats]="Seats" [places]="places" (formValues)="formulario($event)"></app-book>
+    <app-book class="step" [formRequest]="form" [formSeats]="Seats" [places]="places" (formValues)="request($event)">
+    </app-book>
+    <div class="message" style="width: auto" [ngClass]="{'active' : sended}">Request sended successfully</div>
     <h2>FLY ALLIES AIR TODAY!</h2>
 
 

@@ -14,4 +14,7 @@ export class ApiService {
   contact(data) {
     return this._http.post(environment.url + "public/contacts", data);
   }
+  requestCharter(data) {
+    return this._http.post(environment.url + "public/request-charter", data);
+  }
 }

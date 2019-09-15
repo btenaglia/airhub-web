@@ -35,21 +35,10 @@
                 display: block
             }
 
-            button {
-                bottom: 0;
-                width: 200px;
-                position: relative;
-                cursor: pointer;
-                border-radius: 5px;
-                border: none;
-                padding: 10px 30px;
-                box-shadow: 5px 5px 8px black;
-                color: white;
-                background: #19321c;
-                position: relative;
-                display: block;
-                margin: 10px auto;
-
+          
+            .error{
+                color:#ef2424;
+                padding: 10px 0
             }
         }
 
@@ -66,7 +55,9 @@
                 background: white;
                 justify-content: space-around;
                 padding: 5px;
-
+                &.active{
+                    border:1px solid red;
+                }
                 input {
                     background: white;
                     border: none;
@@ -109,7 +100,7 @@
 
             }
 
-
+          
         }
 
         .book {
@@ -127,22 +118,7 @@
                 display: flex;
             }
 
-            button {
-                bottom: 0;
-                width: 150px;
-                position: relative;
-                cursor: pointer;
-                border-radius: 5px;
-                border: none;
-                padding: 10px 30px;
-                box-shadow: 5px 5px 8px black;
-                color: white;
-                background: #19321c;
-                position: relative;
-                display: block;
-                margin: 10px auto;
-
-            }
+           
         }
     }
 }

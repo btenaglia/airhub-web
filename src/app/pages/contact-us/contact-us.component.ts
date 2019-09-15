@@ -11,6 +11,7 @@ export class ContactUsComponent implements OnInit {
   validate = false
   validateEmail = false
   sending = false
+  sendMessage = false
   form = new FormGroup({
     name: new FormControl('',Validators.required),
     email: new FormControl('',[Validators.required,Validators.email]),
@@ -29,13 +30,10 @@ export class ContactUsComponent implements OnInit {
     }
     this.sending = true
     this.srv.contact(this.form.value).subscribe(data => {
-      console.log(
-        `%c data `,
-        "color:#9d86c5; font-size:12px; padding:2px 4px; background: #292828; border-radius:4px;",
-        data
-      );
       this.form.reset();
       this.sending = false
+      this.sendMessage = true
+      setTimeout(()=>this.sendMessage = false,3000)
     },err => this.sending = false);
   }
 }

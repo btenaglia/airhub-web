@@ -19,6 +19,8 @@
  
     </form>
     <button type="submit" (click)="send()">Submit</button>
-    <img src="/assets/images/spin.gif" *ngIf="sending" class="load">
+    <img src="/assets/images/spin.gif" [ngStyle]="{'visibility': sending ? 'visible':'hidden'}" class="load">
+    <div class="message active" style="position:absolute;bottom: 0" [ngClass]="{'active' : sendMessage}">Your message has has been sended successfully !</div>     
   </div>
+  
 </div>

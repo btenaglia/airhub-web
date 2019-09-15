@@ -20,65 +20,66 @@
 
   <div [formGroup]="formRequest" class="form-charter">
 
-    <div class="control">
-      <input type="text" formControlName="name" placeholder="Name">
+    <div class="control" [ngClass]="{'active':formRequest.get('name').value == '' && validate}">
+        <input type="text" formControlName="name" placeholder="Name">
+    </div>
+    <div class="control" [ngClass]="{'active':formRequest.get('lastname').value == '' && validate}">
+        <input type="text" formControlName="lastname" placeholder="Last Name">
+    </div>
+    <div class="control" [ngClass]="{'active':formRequest.get('email').value == '' && validate}">
+        <input type="text" formControlName="email" placeholder="Email">
+    </div>
+    <div class="control" [ngClass]="{'active':formRequest.get('phone').value == '' && validate}">
+        <input type="text" formControlName="phone" placeholder="Phone number">
     </div>
     <div class="control">
-
-      <input type="text" formControlName="lastname" placeholder="Last Name">
+        <img src="/assets/images/landing/from.png" alt="">
+        <select *ngIf="places.length > 0" formControlName="origin">
+            <option *ngFor="let place of places" [value]="place.id">{{place.name}}</option>
+            <option value="0">Other</option>
+        </select>
     </div>
-    <div class="control">
-
-      <input type="text" formControlName="email" placeholder="Email">
-    </div>
-
-    <div class="control">
-
-      <input type="text" formControlName="phone" placeholder="Phone number">
-    </div>
-    <div class="control">
-      <img src="/assets/images/landing/from.png" alt="">
-      <select *ngIf="places.length > 0" formControlName="origin">
-        <option *ngFor="let place of places" [value]="place.id">{{place.name}}</option>
-        <option value="0">Other</option>
-      </select>
-    </div>
-    <div class="control" *ngIf="formRequest.get('origin').value == 0">
-      <img src="/assets/images/landing/from.png" alt="">
-      <input type="text" formControlName="customOrigin" placeholder="Custom Origin">
+    <div class="control" *ngIf="formRequest.get('origin').value == 0"
+        [ngClass]="{'active':formRequest.get('customOrigin').value == '' && validate}">
+        <img src="/assets/images/landing/from.png" alt="">
+        <input type="text" formControlName="customOrigin" placeholder="Custom Origin">
     </div>
 
     <div class="control">
-      <img src="/assets/images/landing/to.png" alt="">
-      <select *ngIf="places.length > 0" formControlName="destination">
-        <option *ngFor="let place of places" [value]="place.id">{{place.name}}</option>
-        <option value="0">Other</option>
-      </select>
+        <img src="/assets/images/landing/to.png" alt="">
+        <select *ngIf="places.length > 0" formControlName="destination">
+            <option *ngFor="let place of places" [value]="place.id">{{place.name}}</option>
+            <option value="0">Other</option>
+        </select>
     </div>
-    <div class="control" *ngIf="formRequest.get('destination').value == 0">
-      <img src="/assets/images/landing/to.png" alt="">
-      <input type="text" formControlName="customDestination" placeholder="Custom Destination">
+    <div class="control" *ngIf="formRequest.get('destination').value == 0"
+        [ngClass]="{'active':formRequest.get('customDestination').value == '' && validate}">
+        <img src="/assets/images/landing/to.png" alt="">
+        <input type="text" formControlName="customDestination" placeholder="Custom Destination">
     </div>
     <div class="control">
-      <img src="/assets/images/landing/calendar.png" alt="">
-      <input type="date" formControlName="dateRequest" placeholder="Name">
+        <img src="/assets/images/landing/calendar.png" alt="">
+        <input type="date" formControlName="dateRequest" placeholder="Name">
     </div>
 
     <div class="control">
-      <img src="/assets/images/landing/clock.png" alt="">
-      <input type="time" formControlName="timeRequest">
+        <img src="/assets/images/landing/clock.png" alt="">
+        <input type="time" formControlName="timeRequest">
     </div>
 
     <div class="control">
-      <img src="/assets/images/landing/passenger.png" alt="">
-      <input type="number">
+        <img src="/assets/images/landing/passenger.png" alt="">
+        <input type="number" formControlName="passengers" min="1">
     </div>
 
   </div>
-  <button type="submit" (click)="request()">Request Charter</button>
+<div class="error" *ngIf="validate">Check all the fields please</div>
 
+<button type="submit" (click)="request()">Request Charter</button>
 
+<div class="message" style="width: auto" [ngClass]="{'active' : sended}">Request sended successfully</div>
 </div>
+
 
 
 <div class="text-info">

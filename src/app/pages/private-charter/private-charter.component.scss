@@ -7,6 +7,10 @@ h2 {
 
 
 .charter {
+  margin: 60px;
+  background: #dbebfa;
+  padding: 10px;
+
   .title {
     line-height: 4;
     text-decoration: underline;
@@ -16,9 +20,11 @@ h2 {
 
   }
 
-  margin: 60px;
-  background: #dbebfa;
-  padding: 10px;
+  .error {
+    color: #ef2424;
+    padding: 10px 0
+  }
+
 
   .form-charter {
     display: grid;
@@ -35,6 +41,7 @@ h2 {
       align-items: center;
     }
 
+
     .control {
       display: flex;
       align-items: center;
@@ -43,47 +50,54 @@ h2 {
       justify-content: space-around;
       padding: 5px;
 
+      &.active {
+        border: 1px solid red;
+      }
+
       input {
-          background: white;
-          border: none;
-          width: 85%;
-          
-          &:focus {
-              outline: none;
-          }
+        background: white;
+        border: none;
+        width: 85%;
+
+        &:focus {
+          outline: none;
+        }
       }
 
       input[type=text] {
-          color: #0b3951;
-          font-weight: 600;
-          height: 40px;
+        color: #0b3951;
+        font-weight: 600;
+        height: 40px;
 
-          &::placeholder {
-              color: #0b39515d;
-          }
+        &::placeholder {
+          color: #0b39515d;
+        }
 
       }
-      input[type=number],input[type=date],input[type=time]{
-          text-align: center;
+
+      input[type=number],
+      input[type=date],
+      input[type=time] {
+        text-align: center;
       }
 
       select {
-          background: url(/assets/images/landing/fromto.png) no-repeat right #fff;
-          -webkit-appearance: none;
-          background-position-x: 98%;
-          background-size: 15px;
-          width: 80%;
-          border: none;
-          height: 50px;
-          color: #0b3951;
-          font-weight: 600;
+        background: url(/assets/images/landing/fromto.png) no-repeat right #fff;
+        -webkit-appearance: none;
+        background-position-x: 98%;
+        background-size: 15px;
+        width: 80%;
+        border: none;
+        height: 50px;
+        color: #0b3951;
+        font-weight: 600;
 
-          &:focus {
-              outline: none;
-          }
+        &:focus {
+          outline: none;
+        }
       }
 
-  }
+    }
 
     @media (max-width:592px) {
 
@@ -157,6 +171,7 @@ h2 {
         width: 100%;
         margin: 0px;
         grid-template-columns: 1fr;
+
         div:first-child {
           width: 100%;
           top: 0;
