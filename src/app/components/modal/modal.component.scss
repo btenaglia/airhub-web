@@ -1,0 +1,29 @@
+.overlayer {
+    background-color: #0000009c;
+    z-index: 1000;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+
+    .content-modal {
+        background: #dbebfa;
+        min-width: 100px;
+        min-height: 100px;
+        width: 50%;
+        transform: translate(50%, 40%);
+        position: relative;
+        overflow: hidden;
+        .close{
+            cursor: pointer;
+            position: absolute;
+            right: 20px;
+            top: 15px;
+            background: #19321c;
+            padding: 4px 7px;
+            border-radius: 100%;
+            color: white;
+        }
+
+    }
+}

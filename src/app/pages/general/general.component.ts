@@ -9,10 +9,12 @@ import { ObserversService } from "src/app/services/observers.service";
 export class GeneralComponent implements OnInit {
   swipeCoord: [number, number];
   swipeTime: number;
-
+  modalOpen = false;
   constructor(private apearSv: ObserversService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.apearSv.modalValue().subscribe(value => (this.modalOpen = value));
+  }
   swipe(e: TouchEvent, when: string): void {
     const coord: [number, number] = [
       e.changedTouches[0].clientX,
@@ -31,7 +33,7 @@ export class GeneralComponent implements OnInit {
       const duration = time - this.swipeTime;
 
       if (
-        duration < 1000 && //
+        duration > 300 && //
         Math.abs(direction[0]) > 30 && // Long enough
         Math.abs(direction[0]) > Math.abs(direction[1] * 3)
       ) {

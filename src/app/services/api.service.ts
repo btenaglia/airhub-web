@@ -17,4 +17,8 @@ export class ApiService {
   requestCharter(data) {
     return this._http.post(environment.url + "public/request-charter", data);
   }
+  
+  login(data){
+    return this._http.post(environment.url + 'public/accounts/login',data)
+  }
 }

@@ -20,7 +20,9 @@ export class SidebarComponent implements OnInit {
     this.srv.activeSidebar(false);
   }
 
-
+  account(){
+    this.srv.activeModal(true);
+  }
  
  
   openChild() {

@@ -30,7 +30,12 @@ export class ContactUsComponent implements OnInit {
     }
     this.sending = true
     this.srv.contact(this.form.value).subscribe(data => {
-      this.form.reset();
+      this.form.reset(
+       { name: '',
+        email: '',
+        phone: '',
+        query: ''}
+      );
       this.sending = false
       this.sendMessage = true
       setTimeout(()=>this.sendMessage = false,3000)

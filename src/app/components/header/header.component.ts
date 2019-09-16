@@ -10,7 +10,12 @@ export class HeaderComponent implements OnInit {
   constructor(private srv: ObserversService) {}
   isVisible = true;
   openChild = false;
-  ngOnInit() {}
+  userLogged = {}
+  ngOnInit(
+    
+  ) {
+    this.srv.getUser().subscribe((data:any) => {this.userLogged = data.user,console.log(`%c this.userLogged `, 'color:#9d86c5; font-size:12px; padding:2px 4px; background: #292828; border-radius:4px;',this.userLogged)})
+  }
 
   active() {
     this.srv.activeSidebar(true);
@@ -18,6 +23,9 @@ export class HeaderComponent implements OnInit {
   }
   open() {
     this.openChild = true;
+  }
+  openModal(){
+    this.srv.activeModal(true);
   }
   close() {
     this.openChild = false;

@@ -1,0 +1,38 @@
+.form-content {
+    padding: 20px;
+    text-align: center;
+
+
+    p {
+        color: #00334e
+    }
+
+    .btn {
+        min-width: 200px;
+
+        @media (max-width:320px) {
+
+            & {
+                min-width: auto;
+            }
+        }
+    }
+
+    .login,
+    .register {
+        display: flex;
+        flex-direction: column;
+
+        .control {
+            margin: 10px;
+
+            input {
+                height: 30px;
+                width: 90%;
+                border: none;
+                padding: 10px;
+            }
+        }
+
+    }
+}

@@ -14,6 +14,9 @@ import { PrivateCharterComponent } from "./private-charter/private-charter.compo
 import { CharterClubComponent } from "./charter-club/charter-club.component";
 import { AirFreightComponent } from "./air-freight/air-freight.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { LoginComponent } from '../components/login/login.component';
+import { ModalComponent } from '../components/modal/modal.component';
+import { FormLoginComponent } from '../components/form-login/form-login.component';
 
 const routes: Routes = [
   {
@@ -100,7 +103,10 @@ const routes: Routes = [
     ContactUsComponent,
     PrivateCharterComponent,
     CharterClubComponent,
-    AirFreightComponent
+    AirFreightComponent,
+    LoginComponent,
+    ModalComponent,
+    FormLoginComponent
   ],
   imports: [
     CommonModule,

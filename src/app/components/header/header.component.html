@@ -16,6 +16,7 @@
           </ul>
         </li>
         <li routerLink="/contact-us" routerLinkActive="active">CONTACT US</li>
+        <li (click)="openModal()">{{userLogged ? 'Hello, ' + userLogged.name : 'MY ACCOUNT'}}</li>
       </ul>
     </div>
   </div>

@@ -4,7 +4,8 @@ import { AppComponent } from "./app.component";
 import { AppRoutingModule } from "./app.routes";
 import { AngularFontAwesomeModule } from "angular-font-awesome";
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
-import { CommonModule } from '@angular/common';
+import { CommonModule } from "@angular/common";
+import { TokenInterceptor } from "./interceptor/interceptor";
 
 
 @NgModule({
@@ -16,7 +17,13 @@ import { CommonModule } from '@angular/common';
     HttpClientModule,
     CommonModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
