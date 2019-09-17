@@ -26,7 +26,7 @@ export class HeaderComponent implements OnInit {
     this.srv.activeValue().subscribe(active => (this.isVisible = !active));
   }
   open(place) {
-    if (place) {
+    if (place == 'login') {
       this.openChildUser = true;
       return;
     }
@@ -36,7 +36,7 @@ export class HeaderComponent implements OnInit {
     this.srv.activeModal({ active: true, action: action });
   }
   close(place) {
-    if (place) {
+    if (place == 'login') {
       this.openChildUser = false;
       return;
     }
