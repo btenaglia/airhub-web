@@ -11,9 +11,10 @@ export class AuthService {
   constructor(private srv: ApiService) {}
 
   getToken() {
-    return sessionStorage.getItem("token");
+    return this.srv.validateToken()
   }
   login(data) {
     this.srv.login(data)
   }
+
 }

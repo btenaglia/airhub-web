@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { environment } from "../../environments/environment";
 import { HttpClient } from "@angular/common/http";
 
+import { EMPTY } from 'rxjs'
 @Injectable({
   providedIn: "root"
 })
@@ -20,5 +21,9 @@ export class ApiService {
   
   login(data){
     return this._http.post(environment.url + 'public/accounts/login',data)
+  }
+  validateToken(){
+    const token = sessionStorage.getItem('token')
+    return token ? this._http.get(environment.url + 'public/validateToken/'+sessionStorage.getItem('token')) : EMPTY
   }
 }

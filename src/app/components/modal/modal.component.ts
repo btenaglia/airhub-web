@@ -1,11 +1,6 @@
 import {
   Component,
-  OnInit,
-  ViewChild,
-  ElementRef,
-  ViewChildren,
-  QueryList,
-  ViewContainerRef
+  OnInit 
 } from "@angular/core";
 import { ObserversService } from 'src/app/services/observers.service';
 
@@ -22,7 +17,7 @@ export class ModalComponent implements OnInit {
     
   }
   constructor(
-    private srv : ObserversService
+    public srv : ObserversService
   ) {}
 
   ngOnInit() {}

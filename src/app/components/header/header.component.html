@@ -16,7 +16,17 @@
           </ul>
         </li>
         <li routerLink="/contact-us" routerLinkActive="active">CONTACT US</li>
-        <li (click)="openModal()">{{userLogged ? 'Hello, ' + userLogged.name : 'MY ACCOUNT'}}</li>
+        <li (mouseover)="open('login')" (mouseout)="close('login')">
+          {{userLogged?.name ? 'Hello, ' + userLogged.name : 'MY ACCOUNT'}}
+         
+          <ul class="inner-list" [ngClass]="{'active' : openChildUser}">
+            <li (click)="openModal('login')" *ngIf="!userLogged?.name">LOG IN</li>
+            <li (click)="openModal('register')" *ngIf="!userLogged?.name">REGISTER</li>
+            <li (click)="logOut()" *ngIf="userLogged?.name">LOG OUT</li>
+          </ul>
+          
+        </li>
+
       </ul>
     </div>
   </div>

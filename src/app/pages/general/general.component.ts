@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ObserversService } from "src/app/services/observers.service";
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: "app-general",
@@ -10,10 +11,14 @@ export class GeneralComponent implements OnInit {
   swipeCoord: [number, number];
   swipeTime: number;
   modalOpen = false;
-  constructor(private apearSv: ObserversService) {}
+  constructor(private apearSv: ObserversService,private authsrv : AuthService) {}
 
   ngOnInit() {
-    this.apearSv.modalValue().subscribe(value => (this.modalOpen = value));
+    this.authsrv.getToken().subscribe((usuario:any) => {
+      this.apearSv.setUser(usuario.data)
+    },err => console.log("erooooo",err));
+
+    this.apearSv.modalValue().subscribe((value:any) => (this.modalOpen = value.active));
   }
   swipe(e: TouchEvent, when: string): void {
     const coord: [number, number] = [

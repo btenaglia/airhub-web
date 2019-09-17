@@ -13,7 +13,7 @@
       <div class="login">
         <div class="control"> <input type="text" [(ngModel)]="loginObject.email" placeholder="Email"></div>
         <div *ngIf="validationMail">Example : Jhon@example.com</div>
-        <div class="control"><input type="password" [(ngModel)]="loginObject.password" placeholder="******"></div>
+        <div class="control"><input type="password" [(ngModel)]="loginObject.password" placeholder="password"></div>
         <button class="btn" (click)="loginForm()">Submit</button>
         <button class="btn" (click)="formOpen('')">Back</button>
       </div>
@@ -24,8 +24,8 @@
     <div class="register">
       <h2>Register</h2>
       <div class="control"> <input type="text" placeholder="Email"></div>
-      <div class="control"><input type="phone" placeholder="******"></div>
-      <div class="control"><input type="password" placeholder="******"></div>
+      <div class="control"><input type="text" placeholder="Phone"></div>
+      <div class="control"><input type="password" placeholder="password"></div>
 
       <button class="btn">Submit</button>
       <button class="btn" (click)="formOpen('')">Back</button>

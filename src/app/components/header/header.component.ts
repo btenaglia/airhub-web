@@ -7,27 +7,43 @@ import { ObserversService } from "src/app/services/observers.service";
   styleUrls: ["./header.component.scss"]
 })
 export class HeaderComponent implements OnInit {
-  constructor(private srv: ObserversService) {}
+  constructor(public srv: ObserversService) {}
   isVisible = true;
   openChild = false;
-  userLogged = {}
-  ngOnInit(
-    
-  ) {
-    this.srv.getUser().subscribe((data:any) => {this.userLogged = data.user,console.log(`%c this.userLogged `, 'color:#9d86c5; font-size:12px; padding:2px 4px; background: #292828; border-radius:4px;',this.userLogged)})
+  openChildUser = false;
+  userLogged = {
+    name: ""
+  };
+  ngOnInit() {
+    this.srv.getUser().subscribe((data: any) => {
+     
+      this.userLogged = data;
+    });
   }
 
   active() {
     this.srv.activeSidebar(true);
     this.srv.activeValue().subscribe(active => (this.isVisible = !active));
   }
-  open() {
+  open(place) {
+    if (place) {
+      this.openChildUser = true;
+      return;
+    }
     this.openChild = true;
   }
-  openModal(){
-    this.srv.activeModal(true);
+  openModal(action) {
+    this.srv.activeModal({ active: true, action: action });
   }
-  close() {
+  close(place) {
+    if (place) {
+      this.openChildUser = false;
+      return;
+    }
     this.openChild = false;
+  }
+  logOut() {
+    this.srv.setUser({});
+    sessionStorage.removeItem("token");
   }
 }

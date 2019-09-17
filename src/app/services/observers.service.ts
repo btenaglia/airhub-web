@@ -6,7 +6,11 @@ import { BehaviorSubject } from "rxjs";
 })
 export class ObserversService {
   private isVisible$ = new BehaviorSubject<boolean>(false);
-  private openModal$ = new BehaviorSubject<boolean>(false);
+  private openModal$ = new BehaviorSubject<Object>({
+    active : false,
+    action : ''
+  });
+  
   private user$ = new BehaviorSubject<Object>({});
   constructor() {}
 
