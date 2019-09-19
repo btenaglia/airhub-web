@@ -99,7 +99,8 @@
 
                 <div class="control">
                     <img src="/assets/images/landing/calendar.png" alt="">
-                    <input type="date" formControlName="dateRequest">
+                    <input type="date" formControlName="dateRequest" onkeydown="return false">
+                    
                 </div>
                 <div class="control">
                     <img src="/assets/images/landing/passenger.png" alt="">
@@ -108,6 +109,7 @@
 
             </div>
             <div class="error" *ngIf="validateSeats">Check all the fields please</div>
+            <div class="error" *ngIf="validateDeparture">Departure date can't be minnor than currently date</div>
             <button (click)="seats()">Search Flights</button>
 
 

@@ -17,6 +17,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { LoginComponent } from '../components/login/login.component';
 import { ModalComponent } from '../components/modal/modal.component';
 import { FormLoginComponent } from '../components/form-login/form-login.component';
+import { ReservationComponent } from './reservation/reservation.component';
 
 const routes: Routes = [
   {
@@ -88,6 +89,17 @@ const routes: Routes = [
         component: CharterClubComponent
       }
     ]
+  },
+  {
+    path: "reservation",
+    data:{},
+    component: GeneralComponent,
+    children: [
+      {
+        path: "",
+        component: ReservationComponent
+      }
+    ]
   }
 ];
 @NgModule({
@@ -106,7 +118,8 @@ const routes: Routes = [
     AirFreightComponent,
     LoginComponent,
     ModalComponent,
-    FormLoginComponent
+    FormLoginComponent,
+    ReservationComponent
   ],
   imports: [
     CommonModule,

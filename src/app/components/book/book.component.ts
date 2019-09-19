@@ -22,10 +22,23 @@ export class BookComponent implements OnInit {
   @Output() formValues = new EventEmitter<{}>();
   @Output() formSeatsValues = new EventEmitter<{}>();
   validateSeats: boolean = false;
-
+  currentlyDate = ""
+  validateDeparture = false
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.currentlyDate = Object.assign({},this.formSeats.get('dateRequest')).value
+  
+    this.formSeats.controls['dateRequest'].valueChanges.subscribe(value => {
+      
+      if(this.currentlyDate > value)
+      this.validateDeparture = true
+      else 
+      this.validateDeparture = false
+      // whole form object is in value and it's called every time any form field changes.
+    });
+    
+  }
 
   changeState(active) {
     this.active = active;
@@ -54,6 +67,9 @@ export class BookComponent implements OnInit {
     this.validate = false
   }
   seats() {
+    if(this.validateDeparture){
+      return false
+    }
     if (!this.formSeats.valid) {
       this.validateSeats = true;
       return false;
