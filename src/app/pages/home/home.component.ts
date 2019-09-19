@@ -15,7 +15,11 @@ export class HomeComponent implements OnInit {
   places = [];
   sended = false;
   private util = new Utils();
-  constructor(private route: Router, private srv: ApiService) {}
+  constructor(
+    private route: Router,
+    private srv: ApiService,
+    private srvObs: ObserversService
+  ) {}
   public form = new FormGroup({
     name: new FormControl("", Validators.required),
     lastname: new FormControl("", Validators.required),
@@ -32,10 +36,10 @@ export class HomeComponent implements OnInit {
   public Seats = new FormGroup({
     origin: new FormControl(),
     destination: new FormControl(),
-    customOrigin: new FormControl(),
-    customDestination: new FormControl(),
+    customOrigin: new FormControl(""),
+    customDestination: new FormControl(""),
     dateRequest: new FormControl(this.util.changeDate(new Date())),
-    flexible: new FormControl(true)
+    passengers: new FormControl(1)
   });
 
   ngOnInit() {
@@ -50,6 +54,8 @@ export class HomeComponent implements OnInit {
       this.places = data.data;
       this.form.get("origin").setValue(this.places[0].id);
       this.form.get("destination").setValue(this.places[1].id);
+      this.Seats.get("origin").setValue(this.places[0].id);
+      this.Seats.get("destination").setValue(this.places[1].id);
     });
   }
   request() {
@@ -69,12 +75,44 @@ export class HomeComponent implements OnInit {
       name: "",
       lastname: "",
       email: "",
-      phone: "",
+      phone: ""
     });
     this.form.get("origin").setValue(this.places[0].id);
     this.form.get("destination").setValue(this.places[1].id);
   }
-  seats() {}
+  defaultSeats() {
+    this.Seats.reset({
+      customOrigin: "",
+      customDestination: "",
+      dateRequest: this.util.changeDate(new Date()),
+      passengers: 1
+    });
+
+    this.Seats.get("origin").setValue(this.places[0].id);
+    this.Seats.get("destination").setValue(this.places[1].id);
+  }
+  seatsForm() {
+    // console.log(`%c this.form.getRawValue() `, 'color:#9d86c5; font-size:12px; padding:2px 4px; background: #292828; border-radius:4px;',this.Seats.getRawValue())
+    const token = sessionStorage.getItem("token");
+    if (!token) {
+      this.srvObs.activeModal({ active: true, action: "" });
+      return false;
+    }
+    this.srv.searchFlights(this.Seats.getRawValue()).subscribe(data => {
+      console.log(
+        `%c  `,
+        "color:#9d86c5; font-size:12px; padding:2px 4px; background: #292828; border-radius:4px;",
+        data
+      );
+      this.defaultSeats();
+    });
+
+    // this.srv.requestCharter(this.form.getRawValue()).subscribe(data => {
+    //   this.sended = true;
+    //   setTimeout(() => (this.sended = false), 3000);
+    //   this.defaultRequest();
+    // });
+  }
   goTo(url) {
     this.route.navigate([url]);
   }

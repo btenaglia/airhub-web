@@ -17,14 +17,14 @@
         </li>
         <li routerLink="/contact-us" routerLinkActive="active">CONTACT US</li>
         <li (mouseover)="open('login')" (mouseout)="close('login')">
-          {{userLogged?.name ? 'Hello, ' + userLogged.name : 'MY ACCOUNT'}}
-         
+          {{userLogged?.name ? 'Hello, ' + userLogged.name : userLogged?.complete_name ? 'Hello, ' + userLogged?.complete_name : 'MY ACCOUNT'}}
+
           <ul class="inner-list" [ngClass]="{'active' : openChildUser}">
-            <li (click)="openModal('login')" *ngIf="!userLogged?.name">LOG IN</li>
-            <li (click)="openModal('register')" *ngIf="!userLogged?.name">REGISTER</li>
-            <li (click)="logOut()" *ngIf="userLogged?.name">LOG OUT</li>
+            <li (click)="openModal('login')" *ngIf="!userLogged?.name && !userLogged?.complete_name">LOG IN</li>
+            <li (click)="openModal('register')" *ngIf="!userLogged?.name && !userLogged?.complete_name">REGISTER</li>
+            <li (click)="logOut()" *ngIf="userLogged?.name || userLogged?.complete_name">LOG OUT</li>
           </ul>
-          
+
         </li>
 
       </ul>

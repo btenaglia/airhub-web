@@ -19,11 +19,15 @@ export class FormLoginComponent implements OnInit {
   validationMail = false;
   constructor(private srv: ApiService, private userSrv: ObserversService) {}
   ngOnInit() {
-     this.userSrv.modalValue().subscribe((data:any) => this.action = data.action)
+    this.userSrv
+      .modalValue()
+      .subscribe((data: any) => (this.action = data.action));
   }
 
   formOpen(action) {
+    debugger
     this.action = action;
+    this.userSrv.activeModal({active:true,action:action})
   }
 
   loginForm() {

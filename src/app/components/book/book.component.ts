@@ -20,6 +20,8 @@ export class BookComponent implements OnInit {
   @Input() formSeats: FormGroup;
   @Input() places: Array<any>;
   @Output() formValues = new EventEmitter<{}>();
+  @Output() formSeatsValues = new EventEmitter<{}>();
+  validateSeats: boolean = false;
 
   constructor() {}
 
@@ -50,5 +52,28 @@ export class BookComponent implements OnInit {
 
     this.formValues.emit(this.formRequest);
     this.validate = false
+  }
+  seats() {
+    if (!this.formSeats.valid) {
+      this.validateSeats = true;
+      return false;
+    }
+    if (
+      this.formSeats.get("origin").value == 0 &&
+      this.formSeats.get("customOrigin").value == ""
+    ) {
+      this.validateSeats = true;
+      return false;
+    }
+    if (
+      this.formSeats.get("destination").value == 0 &&
+      this.formSeats.get("customDestination").value == ""
+    ) {
+      this.validateSeats = true;
+      return false;
+    }
+
+    this.formSeatsValues.emit(this.formSeats);
+    this.validateSeats = false
   }
 }

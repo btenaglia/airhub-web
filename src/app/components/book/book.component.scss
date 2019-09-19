@@ -108,9 +108,12 @@
             min-height: 200px;
 
             .form-charter {
-                grid-template-columns: repeat(3, 1fr);
+                grid-template-columns: repeat(4, 1fr);
             }
-
+            .error{
+                color:#ef2424;
+                padding: 10px 0
+            }
             flex-direction: column;
             justify-content: space-between;
 

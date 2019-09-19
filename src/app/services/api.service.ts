@@ -26,4 +26,10 @@ export class ApiService {
     const token = sessionStorage.getItem('token')
     return token ? this._http.get(environment.url + 'public/validateToken/'+sessionStorage.getItem('token')) : EMPTY
   }
+  //private endpoinst
+  searchFlights(data){
+    return this._http.post(environment.url + 'private/flights/search',data)
+  }
+  
+  
 }

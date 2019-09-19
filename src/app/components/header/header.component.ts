@@ -12,12 +12,13 @@ export class HeaderComponent implements OnInit {
   openChild = false;
   openChildUser = false;
   userLogged = {
-    name: ""
+    name: "",
+    complete_name:""
   };
   ngOnInit() {
     this.srv.getUser().subscribe((data: any) => {
-     
-      this.userLogged = data;
+        this.userLogged = data;
+        
     });
   }
 
