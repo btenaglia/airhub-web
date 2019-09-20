@@ -1,0 +1,43 @@
+.contain {
+    margin: 20px 80px;
+    /* background: #193318; */
+
+    .head-card {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        justify-items: center;
+        align-items: center;
+        height: 80px;
+        background: #193318;
+
+        .item {
+            display: flex;
+            align-items: center;
+
+            .info,
+            .text {
+                margin: 10px;
+                color: white;
+                font-weight: 600;
+                font-size: 1.2rem;
+                font-variant: small-caps;
+            }
+        }
+    }
+    .body-card{
+        background-color :#b5d9fc;
+        min-height: 200px;
+        padding: 40px 80px;
+    
+        .item{
+            display: grid;
+            grid-template-columns: 30% 70%;
+            border: 1px solid;
+            border-radius: 20px;
+            justify-content: center;
+            justify-items: center;
+            height: 200px;
+            background-color: #dbebfa;
+        }
+    }
+}

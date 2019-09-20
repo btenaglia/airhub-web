@@ -129,14 +129,17 @@
 @media (max-width : 921px) {
     .tabs {
         .body {
-            .form-charter {
-                grid-template-columns: repeat(2, 1fr);
-
-                .control {
-                    justify-content: space-between;
+            .charter,.book{
+                .form-charter {
+                    grid-template-columns: repeat(2, 1fr);
+    
+                    .control {
+                        justify-content: space-between;
+                    }
                 }
+    
             }
-
+         
         }
     }
 
@@ -150,12 +153,13 @@
         }
 
         .body {
-            .form-charter {
+            .charter,.book{
+                .form-charter {
                 grid-template-columns: repeat(1, 1fr);
 
 
             }
-
+        }
         }
     }
 }

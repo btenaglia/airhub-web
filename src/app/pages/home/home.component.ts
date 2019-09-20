@@ -18,8 +18,7 @@ export class HomeComponent implements OnInit {
   constructor(
     private route: Router,
     private srv: ApiService,
-    private srvObs: ObserversService,
-    
+    private srvObs: ObserversService
   ) {}
   public form = new FormGroup({
     name: new FormControl("", Validators.required),
@@ -92,7 +91,7 @@ export class HomeComponent implements OnInit {
     this.Seats.get("origin").setValue(this.places[0].id);
     this.Seats.get("destination").setValue(this.places[1].id);
   }
-  
+
   seatsForm() {
     // console.log(`%c this.form.getRawValue() `, 'color:#9d86c5; font-size:12px; padding:2px 4px; background: #292828; border-radius:4px;',this.Seats.getRawValue())
     // const token = sessionStorage.getItem("token");
@@ -100,15 +99,15 @@ export class HomeComponent implements OnInit {
     //   this.srvObs.activeModal({ active: true, action: "" });
     //   return false;
     // }
-    this.srv.searchFlights(this.Seats.getRawValue()).subscribe((data:any) => {
+    this.srv.searchFlights(this.Seats.getRawValue()).subscribe((data: any) => {
       console.log(
         `%c ladata `,
         "color:#9d86c5; font-size:12px; padding:2px 4px; background: #292828; border-radius:4px;",
         data
       );
       this.defaultSeats();
-      this.route.navigateByUrl("/reservation",data)
-      // this.route.navigate(['action-selection'], {state:});
+      this.srvObs.searchWizzard(data.data);
+      this.route.navigateByUrl("/reservation");
     });
 
     // this.srv.requestCharter(this.form.getRawValue()).subscribe(data => {

@@ -1,0 +1,40 @@
+
+<div class="contain">
+
+  <h2>FLIGHT SELECTION</h2>
+
+  <div class="card">
+
+    <div class="head-card">
+      
+      <div class="item">
+          <img src="/assets/images/selection/calendar.png" alt="">
+          <div class="text">{{flights[0]?.departure_date}}</div>
+      </div>
+      <div class="item">
+          <img src="/assets/images/selection/ida.png" alt="">
+          <div class="info">
+              <div class="title">{{flights[0]?.get_origin?.short_name}}</div>
+              <div>{{flights[0]?.get_origin?.name}}</div>
+          </div>
+      </div>
+      <div class="item">
+          <img src="/assets/images/selection/aterrizando.png" alt="">
+          <div class="info">
+              <div class="title">{{flights[0]?.get_destination?.short_name}}</div>
+              <div>{{flights[0]?.get_destination?.name}}</div>
+            </div>
+      </div>
+      <div class="item">
+          <img src="/assets/images/selection/passenger.png" alt="">
+          <div class="text">2</div>
+      </div>
+    </div>
+  </div>
+  <div class="body-card">
+    <div class="item" *ngFor="let flight of flights">
+      <div class="free">{{flight.freeSeats}}</div>
+      <div class="flight"></div>
+    </div>
+  </div>
+</div>

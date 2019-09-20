@@ -25,7 +25,7 @@
                 <div class="control">
                     <img src="/assets/images/landing/from.png" alt="">
                     <select *ngIf="places.length > 0" formControlName="origin">
-                        <option *ngFor="let place of places" [value]="place.id">{{place.name}}</option>
+                        <option *ngFor="let place of places" [value]="place.id">{{place.name}} | {{place.short_name}}</option>
                         <option value="0">Other</option>
                     </select>
                 </div>
@@ -38,7 +38,7 @@
                 <div class="control">
                     <img src="/assets/images/landing/to.png" alt="">
                     <select *ngIf="places.length > 0" formControlName="destination">
-                        <option *ngFor="let place of places" [value]="place.id">{{place.name}}</option>
+                        <option *ngFor="let place of places" [value]="place.id">{{place.name}} | {{place.short_name}}</option>
                         <option value="0">Other</option>
                     </select>
                 </div>
@@ -75,7 +75,7 @@
                 <div class="control">
                     <img src="/assets/images/landing/from.png" alt="">
                     <select *ngIf="places.length > 0" [value]="places[0].id" formControlName="origin">
-                        <option *ngFor="let place of places" [value]="place.id">{{place.name}}</option>
+                        <option *ngFor="let place of places" [value]="place.id">{{place.name}} | {{place.short_name}}</option>
                         <option value="0">Other</option>
                     </select>
                 </div>
@@ -87,7 +87,7 @@
                 <div class="control">
                     <img src="/assets/images/landing/to.png" alt="">
                     <select *ngIf="places.length > 0" [value]="places[1].id" formControlName="destination">
-                        <option *ngFor="let place of places" [value]="place.id">{{place.name}}</option>
+                        <option *ngFor="let place of places" [value]="place.id">{{place.name}} | {{place.short_name}}</option>
                         <option value="0">Other</option>
                     </select>
                 </div>

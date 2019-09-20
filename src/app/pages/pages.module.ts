@@ -18,6 +18,7 @@ import { LoginComponent } from '../components/login/login.component';
 import { ModalComponent } from '../components/modal/modal.component';
 import { FormLoginComponent } from '../components/form-login/form-login.component';
 import { ReservationComponent } from './reservation/reservation.component';
+import { SelectionComponent } from '../components/selection/selection.component';
 
 const routes: Routes = [
   {
@@ -119,7 +120,8 @@ const routes: Routes = [
     LoginComponent,
     ModalComponent,
     FormLoginComponent,
-    ReservationComponent
+    ReservationComponent,
+    SelectionComponent
   ],
   imports: [
     CommonModule,
