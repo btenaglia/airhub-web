@@ -14,7 +14,8 @@
             background-color: #b5d9fd;
 
             &.active {
-                text-decoration: underline;
+                text-decoration-line: underline;
+                text-underline-position: under;
                 background-color: #dbebfa;
             }
         }

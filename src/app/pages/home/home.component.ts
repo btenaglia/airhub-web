@@ -93,12 +93,7 @@ export class HomeComponent implements OnInit {
   }
 
   seatsForm() {
-    // console.log(`%c this.form.getRawValue() `, 'color:#9d86c5; font-size:12px; padding:2px 4px; background: #292828; border-radius:4px;',this.Seats.getRawValue())
-    // const token = sessionStorage.getItem("token");
-    // if (!token) {
-    //   this.srvObs.activeModal({ active: true, action: "" });
-    //   return false;
-    // }
+   
     this.srv.searchFlights(this.Seats.getRawValue()).subscribe((data: any) => {
       console.log(
         `%c ladata `,

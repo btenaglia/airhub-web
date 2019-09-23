@@ -19,6 +19,7 @@ import { ModalComponent } from '../components/modal/modal.component';
 import { FormLoginComponent } from '../components/form-login/form-login.component';
 import { ReservationComponent } from './reservation/reservation.component';
 import { SelectionComponent } from '../components/selection/selection.component';
+import { PassengersComponent } from '../components/passengers/passengers.component';
 
 const routes: Routes = [
   {
@@ -121,7 +122,8 @@ const routes: Routes = [
     ModalComponent,
     FormLoginComponent,
     ReservationComponent,
-    SelectionComponent
+    SelectionComponent,
+    PassengersComponent
   ],
   imports: [
     CommonModule,

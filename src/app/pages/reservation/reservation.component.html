@@ -1,11 +1,15 @@
 
 
 <div class="breadcrumb">
+  <div class="item">Search > </div>
+  <div class="item" [ngClass]="{'active' : selected == 1}">Selection > </div>
+  <div class="item" [ngClass]="{'active' : selected == 2}">Passengers > </div>
+  <div class="item" [ngClass]="{'active' : selected == 3}">Confirmation > </div>
+  <div class="item" [ngClass]="{'active' : selected == 4}">Payment > </div>
+  <div class="item" [ngClass]="{'active' : selected == 5}">Enjoy</div>
 
 </div>
-
-
 <div class="wizzard">
-  
-  <app-selection></app-selection>
+  <app-selection *ngIf="selected == 1" (nextStep)="nextStep($event)"></app-selection>
+  <app-passengers *ngIf="selected === 2" [flight]="selectedFlight" [form]="form" (sendPassengers)="valuesPassengers($event)"></app-passengers>
 </div>

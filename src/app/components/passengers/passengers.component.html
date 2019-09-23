@@ -1,0 +1,63 @@
+<h2 class="title">PASSENGERS</h2>
+
+<div class="contain">
+
+  <div class="passengers">
+    <form action="" [formGroup]="form" class="form">
+      <div class="activeUser">
+        Add me as a passenger<input type="checkbox" formControlName="includeUser">
+      </div>
+
+      <div class="item" formArrayName="passengers" *ngFor="let item of form.get('passengers').controls ;let i = index">
+        <div class="head">
+          Passenger {{i + 1}}
+        </div>
+        <div class="form-item" [formGroupName]="i">
+            <input type="text" placeholder="Name" formControlName="complete_name" >
+            <input type="text" placeholder="Email" formControlName="email">
+            <input type="text" placeholder="Address" formControlName="address">
+            <input type="text" placeholder="CellPhone" formControlName="cell_phone">
+            <input type="text" placeholder="Body Weight" formControlName="body_weight">
+            <input type="text" placeholder="Luggage Weight" formControlName="luggage_weight">
+          
+        </div>
+     
+      </div>
+    </form>
+  </div>
+  <div class="detail">
+    <h2>Your Selection</h2>
+    <hr>
+    <div class="time">
+      <div class="date">
+        <img src="/assets/images/passengers/calendar.png" alt="">
+        {{flight?.departure_date}}
+      </div>
+      <div class="date">
+        <img src="/assets/images/passengers/clock.png" alt="">
+        {{flight?.departure_time}}
+      </div>
+    </div>
+    <div class="travel">
+      <div class="date">
+        <div>From</div>
+        <div>{{flight?.get_origin.short_name}}</div>
+        <div>{{flight?.get_origin.name}}</div>
+      </div>
+      <img src="/assets/images/passengers/air.png" alt="">
+      <div class="date">
+        <div>To</div>
+        <div>{{flight?.get_destination.short_name}}</div>
+        <div>{{flight?.get_destination.name}}</div>
+      </div>
+
+    </div>
+    <div class="info">
+      Total cost <br>
+      <h1>USD ${{price}}</h1>
+      Total per passenger
+      <div *ngIf="user?.get_member">User Member <br>{{user.get_member.description}}</div>
+    </div>
+    <button (click)="send()">Book {{!form.value.includeUser ? flightData.passengers : (flightData.passengers - 1)}}</button>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+.breadcrumb{
+    display: flex;
+    margin: 20px 80px;
+    .item{
+        margin:10px;
+        color: #00334e;
+        &.active{
+            text-decoration-line: underline;
+            text-underline-position: under;
+            font-weight:600
+        }
+    }
+}
