@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { Router, NavigationExtras } from "@angular/router";
+import { Router, NavigationExtras, ActivatedRoute } from "@angular/router";
 import { ObserversService } from "src/app/services/observers.service";
 import { ApiService } from "src/app/services/api.service";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
@@ -15,10 +15,12 @@ export class HomeComponent implements OnInit {
   places = [];
   sended = false;
   private util = new Utils();
+  defaultBook = 1;
   constructor(
     private route: Router,
     private srv: ApiService,
-    private srvObs: ObserversService
+    private srvObs: ObserversService,
+    private actived: ActivatedRoute
   ) {}
   public form = new FormGroup({
     name: new FormControl("", Validators.required),
@@ -43,6 +45,8 @@ export class HomeComponent implements OnInit {
   });
 
   ngOnInit() {
+    this.defaultBook = this.actived.snapshot.queryParams['default'] ?this.actived.snapshot.queryParams['default'] : 1
+    this.actived.snapshot.queryParams['default']
     let carousel = document.getElementById("mobile");
     var maxScrollLeft = carousel.scrollWidth - carousel.clientWidth;
     carousel.scrollLeft = maxScrollLeft / 2;
@@ -93,7 +97,6 @@ export class HomeComponent implements OnInit {
   }
 
   seatsForm() {
-   
     this.srv.searchFlights(this.Seats.getRawValue()).subscribe((data: any) => {
       console.log(
         `%c ladata `,

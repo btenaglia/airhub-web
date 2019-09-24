@@ -26,11 +26,11 @@ export class SelectionComponent implements OnInit {
       this.srv.activeModal({ active: true, action: "" });
       return false;
     }
-    console.log(
-      `%c flight `,
-      "color:#9d86c5; font-size:12px; padding:2px 4px; background: #292828; border-radius:4px;",
-      flight
-    );
+    // console.log(
+    //   `%c flight `,
+    //   "color:#9d86c5; font-size:12px; padding:2px 4px; background: #292828; border-radius:4px;",
+    //   flight
+    // );
     this.nextStep.emit(flight);
   }
 }

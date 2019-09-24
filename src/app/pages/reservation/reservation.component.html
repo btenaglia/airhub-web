@@ -1,16 +1,20 @@
-
-
 <div class="breadcrumb">
-  <div class="item">Search > </div>
-  <div class="item" [ngClass]="{'active' : selected == 1}">Selection > </div>
-  <div class="item" [ngClass]="{'active' : selected == 2}">Passengers > </div>
-  <div class="item" [ngClass]="{'active' : selected == 3}">Confirmation > </div>
-  <div class="item" [ngClass]="{'active' : selected == 4}">Payment > </div>
-  <div class="item" [ngClass]="{'active' : selected == 5}">Enjoy</div>
+  <div class="item" [routerLink]="['/']" [queryParams]="{default: 2}" style="cursor:pointer;">Search > </div>
+  <div class="item" [ngClass]="{'active' : selected == 1}"
+    [ngStyle]="{'cursor' : selected >= 1 ? 'pointer' : 'inherit'}" (click)="navigate(1)">Selection > </div>
+  <div class="item" [ngClass]="{'active' : selected == 2}"
+    [ngStyle]="{'cursor' : selected >= 2 ? 'pointer' : 'inherit'}" (click)="navigate(2)">Passengers > </div>
+  <div class="item" [ngClass]="{'active' : selected == 3}"
+    [ngStyle]="{'cursor' : selected >= 3 ? 'pointer' : 'inherit'}" (click)="navigate(3)">Confirmation > </div>
+  <div class="item" [ngClass]="{'active' : selected == 4}"
+    [ngStyle]="{'cursor' : selected >= 4 ? 'pointer' : 'inherit'}" (click)="navigate(4)">Payment > </div>
+  <div class="item" [ngClass]="{'active' : selected == 5}"
+    [ngStyle]="{'cursor' : selected >= 5 ? 'pointer' : 'inherit'}" (click)="navigate(5)">Enjoy</div>
 
 </div>
 <div class="wizzard">
   <app-selection *ngIf="selected === 1" (nextStep)="nextStep($event)"></app-selection>
-  <app-passengers *ngIf="selected === 2" [flight]="selectedFlight" [form]="form" (sendPassengers)="valuesPassengers($event)"></app-passengers>
+  <app-passengers *ngIf="selected === 2" [flight]="selectedFlight" [form]="form"
+    (sendPassengers)="valuesPassengers($event)"></app-passengers>
   <app-confirmation *ngIf="selected === 3" [data]="completedPassengers" [flight]="selectedFlight"></app-confirmation>
 </div>

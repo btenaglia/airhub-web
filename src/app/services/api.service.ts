@@ -32,5 +32,7 @@ export class ApiService {
   
   //private endpoinst
   
-  
+  reservation(data){
+    return this._http.post(environment.url + 'private/payments/reservationMobileCreate',data)
+  }
 }

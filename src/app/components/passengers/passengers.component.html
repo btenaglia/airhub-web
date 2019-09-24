@@ -2,10 +2,18 @@
 
 <div class="contain">
 
-  <div class="passengers" *ngIf="form.get('passengers')?.controls.length > 0">
+  <div class="passengers" >
     <form action="" [formGroup]="form" class="form">
-      <div class="activeUser">
-        I don't traver as a passenger<input type="checkbox" formControlName="notravel">
+
+      
+    
+      <div class="control user">
+          User
+          <div class="activeUser" *ngIf="form.get('passengers')?.controls.length > 0">
+              I don't traver as a passenger
+              <input type="checkbox" formControlName="notravel" >
+            </div>
+        <input type="number" placeholder="Luggage Weight" min="0" required formControlName="luggage_weight">
       </div>
 
       <div class="item" formArrayName="passengers" *ngFor="let item of form.get('passengers')?.controls ;let i = index">
@@ -13,12 +21,39 @@
           Passenger {{i + 1}}
         </div>
         <div class="form-item" [formGroupName]="i">
-          <input type="text" placeholder="Name" formControlName="complete_name">
-          <input type="text" placeholder="Email" formControlName="email">
-          <input type="text" placeholder="Address" formControlName="address">
-          <input type="text" placeholder="CellPhone" formControlName="cell_phone">
-          <input type="number" placeholder="Body Weight" formControlName="body_weight">
-          <input type="number" placeholder="Luggage Weight" formControlName="luggage_weight">
+
+          <div class="control">
+            <input type="text" placeholder="Name" required formControlName="complete_name">
+            <div style="color:red" *ngIf="form.get('passengers').value[i].complete_name == '' && inValid">Required name
+            </div>
+          </div>
+
+          <div class="control">
+            <input type="text" placeholder="Email" required formControlName="email">
+            <div style="color:red" *ngIf="form.get('passengers').value[i].email == '' && inValid">Required email</div>
+            <div style="color:red" *ngIf="!validateMail.validateEmail(form.get('passengers').value[i].email) && inValid">
+
+              Example: Jhon@example.com</div>
+          </div>
+          <div class="control">
+            <input type="text" placeholder="Address" required formControlName="address">
+            <div style="color:red" *ngIf="form.get('passengers').value[i].address == '' && inValid">Required name</div>
+          </div>
+          <div class="control">
+            <input type="text" placeholder="CellPhone" required formControlName="cell_phone">
+            <div style="color:red" *ngIf="form.get('passengers').value[i].cell_phone == '' && inValid">Required name</div>
+          </div>
+          <div class="control">
+            <input type="number" min="0" placeholder="Body Weight" required formControlName="body_weight">
+            <div style="color:red" *ngIf="form.get('passengers').value[i].body_weight == 0 && inValid">Body Weight has to be upper than 0
+            </div>
+          </div>
+
+          <div class="control">
+            <input type="number" placeholder="Luggage Weight" min="0" required formControlName="luggage_weight">
+          </div>
+
+
 
         </div>
 

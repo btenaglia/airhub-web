@@ -17,7 +17,7 @@ export class ReservationComponent implements OnInit {
   passenger: any = {
     complete_name: "",
     body_weight: "",
-    luggage_weight: "",
+    luggage_weight:"",
     email: "",
     address: "",
     cell_phone: ""
@@ -34,6 +34,7 @@ export class ReservationComponent implements OnInit {
 
       this.form = this.fb.group({
         notravel: this.fb.control(false),
+        luggage_weight: this.fb.control(""),
         passengers: this.fb.array(this.arrayp)
       });
     });
@@ -48,5 +49,9 @@ export class ReservationComponent implements OnInit {
   valuesPassengers(data) {
     this.completedPassengers = data;
     this.selected = 3;
+  }
+  navigate(step){
+        
+    this.selected = step >= this.selected ? this.selected : step
   }
 }

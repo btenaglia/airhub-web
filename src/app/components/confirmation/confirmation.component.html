@@ -39,8 +39,9 @@
             <div class="resumen">
                 <label for="">Total</label> <span>${{flight.price * flights.passengers}}</span>
                 <label for="">{{user?.get_member.description}}</label> <span>-
-                    ${{(user?.get_member.discount * flight.price)}}</span>
-                <strong for="">Total to pay</strong> <span>${{flight.price * flights.passengers}}</span>
+                    ${{(user?.get_member.discount * flight.price * flights.passengers)}}</span>
+                <strong for="">Total to pay</strong>
+                <strong>${{(flight.price * flights.passengers) - (user?.get_member.discount * flight.price * flights.passengers)}}</strong>
             </div>
 
 

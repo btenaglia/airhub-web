@@ -14,10 +14,29 @@
         padding-right: 20px;
 
         .form {
-            .activeUser {
-                margin: 10px 0;
-                font-size: 1.3em;
+            .control {
+                display: flex;
+                flex-direction: column;
+
+                input {
+                    height: 40px;
+                    border: 0;
+                    padding: 10px;
+                    color: #00334e;
+                }
             }
+            .control.user{
+              
+                background: #dbebfa;
+                padding: 10px;
+                .activeUser {
+                    display: flex;
+                    align-items:center;
+                    margin: 10px 0;
+                    font-size: 1.3em;
+                }
+            }
+            
 
             .item {
                 border: 3px solid #193318;
@@ -40,23 +59,20 @@
                     padding: 20px;
                     background: #dbebfa;
 
-                    input {
-                        height: 40px;
-                        border: 0;
-                        padding: 10px;
-                        color: #00334e;
+                   
+
+                    @media (max-width: 812px) {
+                        & {
+                            grid-template-columns: 1fr
+                        }
                     }
-                    @media (max-width: 812px){
-                            &{
-                                grid-template-columns: 1fr
-                            }
+
+                    @media (max-width: 412px) {
+                        & {
+                            grid-template-columns: 90px;
                         }
-                        @media (max-width: 412px){
-                            &{
-                                grid-template-columns: 90px;
-                            }
-                        }
-                    
+                    }
+
                 }
             }
         }
@@ -68,7 +84,7 @@
         padding: 15px;
         box-shadow: 1px 1px 5px #80808082;
         text-align: center;
-        margin-top: 2.6em;
+        
         height: 500px;
 
         .travel,
