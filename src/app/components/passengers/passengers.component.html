@@ -2,26 +2,26 @@
 
 <div class="contain">
 
-  <div class="passengers">
+  <div class="passengers" *ngIf="form.get('passengers')?.controls.length > 0">
     <form action="" [formGroup]="form" class="form">
       <div class="activeUser">
-        Add me as a passenger<input type="checkbox" formControlName="includeUser">
+        I don't traver as a passenger<input type="checkbox" formControlName="notravel">
       </div>
 
-      <div class="item" formArrayName="passengers" *ngFor="let item of form.get('passengers').controls ;let i = index">
+      <div class="item" formArrayName="passengers" *ngFor="let item of form.get('passengers')?.controls ;let i = index">
         <div class="head">
           Passenger {{i + 1}}
         </div>
         <div class="form-item" [formGroupName]="i">
-            <input type="text" placeholder="Name" formControlName="complete_name" >
-            <input type="text" placeholder="Email" formControlName="email">
-            <input type="text" placeholder="Address" formControlName="address">
-            <input type="text" placeholder="CellPhone" formControlName="cell_phone">
-            <input type="text" placeholder="Body Weight" formControlName="body_weight">
-            <input type="text" placeholder="Luggage Weight" formControlName="luggage_weight">
-          
+          <input type="text" placeholder="Name" formControlName="complete_name">
+          <input type="text" placeholder="Email" formControlName="email">
+          <input type="text" placeholder="Address" formControlName="address">
+          <input type="text" placeholder="CellPhone" formControlName="cell_phone">
+          <input type="number" placeholder="Body Weight" formControlName="body_weight">
+          <input type="number" placeholder="Luggage Weight" formControlName="luggage_weight">
+
         </div>
-     
+
       </div>
     </form>
   </div>
@@ -58,6 +58,7 @@
       Total per passenger
       <div *ngIf="user?.get_member">User Member <br>{{user.get_member.description}}</div>
     </div>
-    <button (click)="send()">Book {{!form.value.includeUser ? flightData.passengers : (flightData.passengers - 1)}}</button>
+    <button (click)="send()">Book
+      {{!form.value.notravel ? flightData.passengers : (flightData.passengers - 1)}}</button>
   </div>
 </div>

@@ -10,6 +10,7 @@
 
 </div>
 <div class="wizzard">
-  <app-selection *ngIf="selected == 1" (nextStep)="nextStep($event)"></app-selection>
+  <app-selection *ngIf="selected === 1" (nextStep)="nextStep($event)"></app-selection>
   <app-passengers *ngIf="selected === 2" [flight]="selectedFlight" [form]="form" (sendPassengers)="valuesPassengers($event)"></app-passengers>
+  <app-confirmation *ngIf="selected === 3" [data]="completedPassengers" [flight]="selectedFlight"></app-confirmation>
 </div>

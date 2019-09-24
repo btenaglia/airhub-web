@@ -15,8 +15,8 @@ export class PassengersComponent implements OnInit {
   public arrayPassenger: any = [];
   passenger: any = {
     complete_name: "",
-    body_weight: "",
-    luggage_weight: "",
+    body_weight: 0,
+    luggage_weight: 0,
     email: "",
     address: "",
     cell_phone: ""
@@ -29,8 +29,6 @@ export class PassengersComponent implements OnInit {
   ngOnInit() {
     this.srvObs.searchWizzardGetValue().subscribe(data => {
       this.flightData = data;
-      
-      
     });
     this.srvObs.getUser().subscribe(data => {
       this.user = data;

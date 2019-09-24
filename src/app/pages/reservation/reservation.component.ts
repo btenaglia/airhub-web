@@ -13,6 +13,7 @@ export class ReservationComponent implements OnInit {
   constructor(private srvObs: ObserversService, private fb: FormBuilder) {}
   selectedFlight = {};
   arrayp = [];
+  completedPassengers: any = {};
   passenger: any = {
     complete_name: "",
     body_weight: "",
@@ -32,7 +33,7 @@ export class ReservationComponent implements OnInit {
       }
 
       this.form = this.fb.group({
-        includeUser : this.fb.control(true),
+        notravel: this.fb.control(false),
         passengers: this.fb.array(this.arrayp)
       });
     });
@@ -45,10 +46,7 @@ export class ReservationComponent implements OnInit {
     this.selected = 2;
   }
   valuesPassengers(data) {
-    console.log(
-      `%c llegaron los extras `,
-      "color:#9d86c5; font-size:12px; padding:2px 4px; background: #292828; border-radius:4px;",
-      data
-    );
+    this.completedPassengers = data;
+    this.selected = 3;
   }
 }

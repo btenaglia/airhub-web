@@ -8,17 +8,20 @@
     margin: 20px 80px;
     display: grid;
     grid-template-columns: 70% 1fr;
-  
-   
+
+
     .passengers {
-        padding-right:20px;
-        .form{
+        padding-right: 20px;
+
+        .form {
             .activeUser {
                 margin: 10px 0;
                 font-size: 1.3em;
             }
-    
+
             .item {
+                border: 3px solid #193318;
+
                 .head {
                     height: 80px;
                     /* text-align: center; */
@@ -29,31 +32,45 @@
                     color: white;
                     font-weight: 600;
                 }
-    
+
                 .form-item {
                     display: grid;
                     grid-template-columns: 1fr 1fr;
                     gap: 10px;
                     padding: 20px;
                     background: #dbebfa;
-    
+
                     input {
                         height: 40px;
                         border: 0;
                         padding: 10px;
                         color: #00334e;
                     }
+                    @media (max-width: 812px){
+                            &{
+                                grid-template-columns: 1fr
+                            }
+                        }
+                        @media (max-width: 412px){
+                            &{
+                                grid-template-columns: 90px;
+                            }
+                        }
+                    
                 }
             }
         }
-      
+
     }
+
     .detail {
         background: #dbebfa;
         padding: 15px;
         box-shadow: 1px 1px 5px #80808082;
         text-align: center;
         margin-top: 2.6em;
+        height: 500px;
+
         .travel,
         .time {
             color: #00334e;
@@ -73,7 +90,11 @@
                     margin-bottom: 10px;
                 }
             }
+
         }
 
+        .info {
+            padding: 10px;
+        }
     }
 }
