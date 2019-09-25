@@ -8,13 +8,13 @@
     [ngStyle]="{'cursor' : selected >= 3 ? 'pointer' : 'inherit'}" (click)="navigate(3)">Confirmation > </div>
   <div class="item" [ngClass]="{'active' : selected == 4}"
     [ngStyle]="{'cursor' : selected >= 4 ? 'pointer' : 'inherit'}" (click)="navigate(4)">Payment > </div>
-  <div class="item" [ngClass]="{'active' : selected == 5}"
-    [ngStyle]="{'cursor' : selected >= 5 ? 'pointer' : 'inherit'}" (click)="navigate(5)">Enjoy</div>
+ 
 
 </div>
 <div class="wizzard">
   <app-selection *ngIf="selected === 1" (nextStep)="nextStep($event)"></app-selection>
   <app-passengers *ngIf="selected === 2" [flight]="selectedFlight" [form]="form"
     (sendPassengers)="valuesPassengers($event)"></app-passengers>
-  <app-confirmation *ngIf="selected === 3" [data]="completedPassengers" [flight]="selectedFlight"></app-confirmation>
+  <app-confirmation *ngIf="selected === 3" [data]="completedPassengers" [flight]="selectedFlight" (getUrl)="urlPayment($event)"></app-confirmation>
+  <app-payments *ngIf="selected === 4" [url]="urlpago"></app-payments>
 </div>

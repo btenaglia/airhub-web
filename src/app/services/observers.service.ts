@@ -10,7 +10,7 @@ export class ObserversService {
     active: false,
     action: ""
   });
-
+  private urlPayment$ = new BehaviorSubject<string>("");
   private user$ = new BehaviorSubject<Object>({});
   private search$ = new BehaviorSubject<Object>([]);
   constructor() {}
@@ -43,5 +43,11 @@ export class ObserversService {
   }
   searchWizzardGetValue() {
     return this.search$.asObservable();
+  }
+  setUrlPayment(url) {
+    this.urlPayment$.next(url);
+  }
+  getUrlPayment() {
+    return this.urlPayment$.asObservable();
   }
 }

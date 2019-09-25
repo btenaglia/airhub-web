@@ -10,7 +10,7 @@ export class SelectionComponent implements OnInit {
   @Output() nextStep = new EventEmitter<number>();
   public valid = false;
   public flights: any = {};
-
+  public modal = false
   constructor(private srv: ObserversService) {}
 
   ngOnInit() {
@@ -25,6 +25,11 @@ export class SelectionComponent implements OnInit {
     if (!token) {
       this.srv.activeModal({ active: true, action: "" });
       return false;
+    }
+    
+    if(flight.freeSeats < this.flights.passengers){
+      this.srv.activeModal({active:true, action:"seatsError"})
+      return false
     }
     // console.log(
     //   `%c flight `,

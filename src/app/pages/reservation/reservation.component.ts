@@ -14,6 +14,7 @@ export class ReservationComponent implements OnInit {
   selectedFlight = {};
   arrayp = [];
   completedPassengers: any = {};
+  urlpago = ""
   passenger: any = {
     complete_name: "",
     body_weight: "",
@@ -53,5 +54,9 @@ export class ReservationComponent implements OnInit {
   navigate(step){
         
     this.selected = step >= this.selected ? this.selected : step
+  }
+  urlPayment(data){
+    this.urlpago = data
+    this.selected = 4;
   }
 }

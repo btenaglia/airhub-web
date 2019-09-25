@@ -15,21 +15,50 @@
         <div *ngIf="validationMail">Example : Jhon@example.com</div>
         <div class="control"><input type="password" [(ngModel)]="loginObject.password" placeholder="password"></div>
         <button class="btn" (click)="loginForm()">Submit</button>
+        <div class="error" *ngIf="">Credentials Error</div>
         <!-- <button class="btn" (click)="formOpen('')">Back</button> -->
       </div>
 
     </ng-container>
   </ng-template>
   <ng-template #register>
-    <div class="register">
+    <div class="register" *ngIf="action=='register'">
       <h2>Register</h2>
+      <div class="control"> <input type="text" placeholder="Name" tabindex="1"></div>
+      <div class="control"> <input type="text" placeholder="Last Name" tabindex="1"></div>
+      <div class="control"> <input type="text" placeholder="Address" tabindex="1"></div>
+      <div class="control"> <input type="text" placeholder="Country" tabindex="1"></div>
+      <div class="control"> <input type="text" placeholder="Country" tabindex="1"></div>
       <div class="control"> <input type="text" placeholder="Email" tabindex="1"></div>
       <div class="control"><input type="text" placeholder="Phone"></div>
       <div class="control"><input type="password" placeholder="password"></div>
 
-      <button class="btn" >Submit</button>
+      <button class="btn" (click)="registerForm()">Submit</button>
       <!-- <button class="btn" (click)="formOpen('')">Back</button> -->
     </div>
-
+    $user = new User();
+    $user->user_type = User::USER_TYPE_APP;
+    $user->name = $input['name'];
+    $user->member_id = $input['member_id'];
+    $user->last_name = $input['last_name'];
+    $user->address = $input['address'];
+    $user->city = $input['city'];
+    $user->body_weight = $input['body_weight'];
+    $user->cell_phone = $input['cell_phone'];
+    $user->country = $input['country'];
+    $user->email = $input['email'];
+    $user->setPassword(\Crypt::encrypt($input['password']));
+    $user->state = $input['state'];
+    $user->zipcode = $input['zipcode'];
+    $user->verified = $input['verified'];
+    $user->complete_name = $input['last_name'] . ',' . $input['name'];
+    $user->save();
   </ng-template>
+  <ng-container *ngIf="action=='seatsError'">
+    <div class="error">
+      Capacity of seats insuficient
+    </div>
+   
+  </ng-container>
+
 </div>

@@ -27,39 +27,44 @@
 
 
       <div class="control">
-          <img src="/assets/images/landing/from.png" alt="">
-          <select *ngIf="places.length > 0" [value]="places[0].id" formControlName="origin">
-              <option *ngFor="let place of places" [value]="place.id">{{place.name}}</option>
-              <option value="0">Other</option>
-          </select>
-      </div>
-      <div class="control" *ngIf="seatsForm.get('origin').value == 0">
-          <img src="/assets/images/landing/from.png" alt="">
-          <input type="text" formControlName="customOrigin" placeholder="Custom Origin">
-      </div>
-      <div class="control">
-          <img src="/assets/images/landing/to.png" alt="">
-          <select *ngIf="places.length > 0" [value]="places[1].id" formControlName="destination">
-              <option *ngFor="let place of places" [value]="place.id">{{place.name}}</option>
-              <option value="0">Other</option>
-          </select>
-      </div>
-      <div class="control" *ngIf="seatsForm.get('destination').value == 0" alt="">
-          <img src="/assets/images/landing/to.png" >
-          <input type="text" formControlName="customDestination" placeholder="Custom Destination">
-      </div>
-
-      <div class="control">
-          <img src="/assets/images/landing/calendar.png" alt="">
-          <input type="date">
-      </div>
-
-      <div class="check">
-          <input type="checkbox" formControlName="flexible">
-          <label for="">Flexible date</label>
-      </div>
+        <img src="/assets/images/landing/from.png" alt="">
+        <select *ngIf="places.length > 0" [value]="places[0].id" formControlName="origin">
+            <option *ngFor="let place of places" [value]="place.id">{{place.name}} | {{place.short_name}}</option>
+            <option value="0">Other</option>
+        </select>
     </div>
-    <button>Search Flights</button>
+    <div class="control" *ngIf="seatsForm.get('origin').value == 0"
+        [ngClass]="{'active':seatsForm.get('customOrigin').value == '' && validateSeats}">
+        <img src="/assets/images/landing/from.png" alt="">
+        <input type="text" formControlName="customOrigin" placeholder="Custom Origin">
+    </div>
+    <div class="control">
+        <img src="/assets/images/landing/to.png" alt="">
+        <select *ngIf="places.length > 0" [value]="places[1].id" formControlName="destination">
+            <option *ngFor="let place of places" [value]="place.id">{{place.name}} | {{place.short_name}}</option>
+            <option value="0">Other</option>
+        </select>
+    </div>
+    <div class="control" *ngIf="seatsForm.get('destination').value == 0"
+        [ngClass]="{'active':seatsForm.get('customDestination').value == '' && validateSeats}">
+        <img src="/assets/images/landing/to.png" alt="">
+        <input type="text" formControlName="customDestination" placeholder="Custom Destination">
+    </div>
+
+    <div class="control">
+        <img src="/assets/images/landing/calendar.png" alt="">
+        <input type="date" formControlName="dateRequest" onkeydown="return false">
+        
+    </div>
+    <div class="control">
+        <img src="/assets/images/landing/passenger.png" alt="">
+        <input type="number" formControlName="passengers" min="1">
+    </div>
+
+</div>
+<div class="error" *ngIf="validateSeats">Check all the fields please</div>
+<div class="error" *ngIf="validateDeparture">Departure date can't be minnor than currently date</div>
+<button (click)="sendForm()">Search Flights</button>
 
 </div>
 <section>

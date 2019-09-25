@@ -21,7 +21,7 @@ import { ReservationComponent } from './reservation/reservation.component';
 import { SelectionComponent } from '../components/selection/selection.component';
 import { PassengersComponent } from '../components/passengers/passengers.component';
 import { ConfirmationComponent } from '../components/confirmation/confirmation.component';
-
+import { PaymentsComponent } from '../components/payments/payments.component';
 const routes: Routes = [
   {
     path: "",
@@ -125,7 +125,8 @@ const routes: Routes = [
     ReservationComponent,
     SelectionComponent,
     PassengersComponent,
-    ConfirmationComponent
+    ConfirmationComponent,
+    PaymentsComponent
   ],
   imports: [
     CommonModule,

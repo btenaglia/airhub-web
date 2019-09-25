@@ -34,6 +34,7 @@ export class HeaderComponent implements OnInit {
     this.openChild = true;
   }
   openModal(action) {
+    
     this.srv.activeModal({ active: true, action: action });
   }
   close(place) {

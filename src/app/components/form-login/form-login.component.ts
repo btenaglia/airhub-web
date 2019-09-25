@@ -25,7 +25,6 @@ export class FormLoginComponent implements OnInit {
   }
 
   formOpen(action) {
-    debugger
     this.action = action;
     this.userSrv.activeModal({active:true,action:action})
   }
