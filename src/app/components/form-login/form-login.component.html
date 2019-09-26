@@ -24,41 +24,53 @@
   <ng-template #register>
     <div class="register" *ngIf="action=='register'">
       <h2>Register</h2>
-      <div class="control"> <input type="text" placeholder="Name" tabindex="1"></div>
-      <div class="control"> <input type="text" placeholder="Last Name" tabindex="1"></div>
-      <div class="control"> <input type="text" placeholder="Address" tabindex="1"></div>
-      <div class="control"> <input type="text" placeholder="Country" tabindex="1"></div>
-      <div class="control"> <input type="text" placeholder="Country" tabindex="1"></div>
-      <div class="control"> <input type="text" placeholder="Email" tabindex="1"></div>
-      <div class="control"><input type="text" placeholder="Phone"></div>
-      <div class="control"><input type="password" placeholder="password"></div>
+      <div class="register-form">
+        <div class="control"> <input type="text" [(ngModel)]="reg.email" placeholder="Email" tabindex="1"></div>
+        <div class="control"><input type="password" [(ngModel)]="reg.password" placeholder="password"></div>
+        <div class="control"><input type="password" [(ngModel)]="reg.confirmpass" placeholder="Confirm password"></div>
 
-      <button class="btn" (click)="registerForm()">Submit</button>
-      <!-- <button class="btn" (click)="formOpen('')">Back</button> -->
+        <button class="btn" (click)="registerForm()">Next</button>
+      </div>
+
+
     </div>
-    $user = new User();
-    $user->user_type = User::USER_TYPE_APP;
-    $user->name = $input['name'];
-    $user->member_id = $input['member_id'];
-    $user->last_name = $input['last_name'];
-    $user->address = $input['address'];
-    $user->city = $input['city'];
-    $user->body_weight = $input['body_weight'];
-    $user->cell_phone = $input['cell_phone'];
-    $user->country = $input['country'];
-    $user->email = $input['email'];
-    $user->setPassword(\Crypt::encrypt($input['password']));
-    $user->state = $input['state'];
-    $user->zipcode = $input['zipcode'];
-    $user->verified = $input['verified'];
-    $user->complete_name = $input['last_name'] . ',' . $input['name'];
-    $user->save();
+
   </ng-template>
-  <ng-container *ngIf="action=='seatsError'">
-    <div class="error">
-      Capacity of seats insuficient
-    </div>
-   
-  </ng-container>
+  <ng-container>
+    <div class="register" *ngIf="action=='register2'">
+      <!-- <h2>Register</h2> -->
+      <div class="register-form2">
+        <h2 class="personal">Personal information</h2>
+        <div class="control  first"> <input type="text" name="name" [(ngModel)]="reg.name" placeholder="Name"
+            tabindex="1">
+        </div>
+        <div class="control second"> <input type="text" name="last_name" [(ngModel)]="reg.last_name"
+            placeholder="Last Name" tabindex="1"></div>
+        <div class="control first"> <input type="number" [(ngModel)]="reg.body_weight" placeholder="Body Weight (lbs)"
+            tabindex="1"></div>
+        <div class="control second"><input type="text" [(ngModel)]="reg.cell_phone" placeholder="Phone"></div>
+        <h2 class="address">Address</h2>
+
+        <div class="control  first"> <input type="text" [(ngModel)]="reg.address" placeholder="Address"></div>
+        <div class="control second"> <input type="text" [(ngModel)]="reg.zipcode" placeholder="Zip Code"></div>
+        <div class="control first"> <input type="text" [(ngModel)]="reg.country" placeholder="Country"></div>
+        <div class="control second"> <input type="text" [(ngModel)]="reg.state" placeholder="State"></div>
+        <div class="control first"> <input type="text" [(ngModel)]="reg.city" placeholder="City"></div>
+  
+        <button class="btn first" (click)="formOpen('register')">back</button> <button class="btn second"
+          (click)="registerFinish()">Register</button>
+      </div>
+      
+
+    
+  </div>
+</ng-container>
+
+<ng-container *ngIf="action=='seatsError'">
+  <div class="error">
+    Capacity of seats insuficient
+  </div>
+
+</ng-container>
 
 </div>

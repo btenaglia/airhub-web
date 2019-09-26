@@ -20,15 +20,51 @@
                 width: 90%;
                 border: none;
                 padding: 10px;
-                
+
             }
-           
+
         }
 
+        .register-form2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            .personal {
+
+                grid-column: 1;
+            }
+
+            h2 {
+                color: #00334e
+            }
+
+            .btn {
+                &.first {
+
+                    background: darkslategrey;
+
+                    &:hover {
+                        color: #000
+                    }
+                }
+            }
+
+
+
+            .first {
+
+                grid-column: 1/2
+            }
+
+            .second {
+                grid-column: 2
+            }
+        }
     }
-    .error{
+
+    .error {
         display: flex;
         justify-content: center;
-        
+
     }
 }

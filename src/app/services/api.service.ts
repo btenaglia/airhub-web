@@ -22,6 +22,9 @@ export class ApiService {
   login(data){
     return this._http.post(environment.url + 'public/accounts/login',data)
   }
+  register(data){
+    return this._http.post(environment.url + 'public/accounts/create',data)
+  }
   validateToken(){
     const token = sessionStorage.getItem('token')
     return token ? this._http.get(environment.url + 'public/validateToken/'+sessionStorage.getItem('token')) : EMPTY
@@ -29,7 +32,7 @@ export class ApiService {
   searchFlights(data){
     return this._http.post(environment.url + 'public/flights/search',data)
   }
-  
+ 
   //private endpoinst
   
   reservation(data){

@@ -10,6 +10,20 @@ import { ObserversService } from "src/app/services/observers.service";
 })
 export class FormLoginComponent implements OnInit {
   action = "";
+  reg = {
+    email: "",
+    name: "",
+    password: "",
+    confirmpass: "",
+    last_name: "",
+    address: "",
+    city: "",
+    body_weight: "",
+    country: "",
+    cell_phone: "",
+    zipcode: "",
+    state: ""
+  };
 
   loginObject = {
     email: "",
@@ -26,7 +40,7 @@ export class FormLoginComponent implements OnInit {
 
   formOpen(action) {
     this.action = action;
-    this.userSrv.activeModal({active:true,action:action})
+    this.userSrv.activeModal({ active: true, action: action });
   }
 
   loginForm() {
@@ -48,5 +62,16 @@ export class FormLoginComponent implements OnInit {
   }
   ngOnDestroy(): void {
     this.subscription ? this.subscription.unsubscribe() : "";
+  }
+  registerForm() {
+   
+    this.action = "register2";
+  }
+
+  registerFinish() {
+
+    this.srv.register(this.reg).subscribe(data => {
+      console.log(`%c data `, 'color:#9d86c5; font-size:12px; padding:2px 4px; background: #292828; border-radius:4px;',data)
+    })
   }
 }

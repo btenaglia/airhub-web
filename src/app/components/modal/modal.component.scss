@@ -11,10 +11,13 @@
         min-width: 100px;
         min-height: 100px;
         width: 50%;
-        transform: translate(50%, 40%);
+        transform: translate(50%, 0%);
+        top: 10%;
+
         position: relative;
         overflow: hidden;
-        .close{
+
+        .close {
             cursor: pointer;
             position: absolute;
             right: 20px;
