@@ -11,7 +11,10 @@
     .register {
         display: flex;
         flex-direction: column;
-
+        .error {
+            padding: 5px;
+            color: red;
+        }
         .control {
             margin: 10px;
 
@@ -20,8 +23,13 @@
                 width: 90%;
                 border: none;
                 padding: 10px;
-
+                &.ctrl-error{
+                    border: 1px solid red;
+                }
             }
+
+           
+            
 
         }
 

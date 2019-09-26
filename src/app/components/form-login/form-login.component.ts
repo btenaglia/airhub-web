@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from "@angular/core";
 import { ApiService } from "src/app/services/api.service";
 import { Subscription } from "rxjs";
 import { ObserversService } from "src/app/services/observers.service";
+import { Utils } from "src/app/services/utils";
 
 @Component({
   selector: "app-form-login",
@@ -9,6 +10,10 @@ import { ObserversService } from "src/app/services/observers.service";
   styleUrls: ["./form-login.component.scss"]
 })
 export class FormLoginComponent implements OnInit {
+  registerValid = {
+    first: false,
+    sec: false
+  };
   action = "";
   reg = {
     email: "",
@@ -18,7 +23,7 @@ export class FormLoginComponent implements OnInit {
     last_name: "",
     address: "",
     city: "",
-    body_weight: "",
+    body_weight: null,
     country: "",
     cell_phone: "",
     zipcode: "",
@@ -31,6 +36,7 @@ export class FormLoginComponent implements OnInit {
   };
   subscription: Subscription;
   validationMail = false;
+  util = new Utils();
   constructor(private srv: ApiService, private userSrv: ObserversService) {}
   ngOnInit() {
     this.userSrv
@@ -64,14 +70,50 @@ export class FormLoginComponent implements OnInit {
     this.subscription ? this.subscription.unsubscribe() : "";
   }
   registerForm() {
-   
+    
+    if (
+      this.reg.email == "" &&
+      this.reg.password == "" &&
+      this.reg.confirmpass == ""
+    ) {
+      this.registerValid.first = true;
+      return false;
+    }
+    if (!this.util.validateEmail(this.reg.email)) {
+      this.registerValid.first = true;
+      return false;
+    }
+    if(this.reg.password !== this.reg.confirmpass)
+    {
+      this.registerValid.first = true;
+      return false
+    }
     this.action = "register2";
   }
 
   registerFinish() {
-
+debugger
+    if (
+      this.reg.name == "" &&
+      this.reg.last_name == "" &&
+      this.reg.body_weight == null &&
+      this.reg.address == "" &&
+      this.reg.cell_phone == ""
+    ) {
+      this.registerValid.sec = true;
+      return false;
+    }
+    if(Number(this.reg.body_weight) <= 0)
+    {
+      this.registerValid.sec == true
+      return false
+    }
     this.srv.register(this.reg).subscribe(data => {
-      console.log(`%c data `, 'color:#9d86c5; font-size:12px; padding:2px 4px; background: #292828; border-radius:4px;',data)
-    })
+      console.log(
+        `%c data `,
+        "color:#9d86c5; font-size:12px; padding:2px 4px; background: #292828; border-radius:4px;",
+        data
+      );
+    });
   }
 }

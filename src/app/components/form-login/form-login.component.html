@@ -25,10 +25,33 @@
     <div class="register" *ngIf="action=='register'">
       <h2>Register</h2>
       <div class="register-form">
-        <div class="control"> <input type="text" [(ngModel)]="reg.email" placeholder="Email" tabindex="1"></div>
-        <div class="control"><input type="password" [(ngModel)]="reg.password" placeholder="password"></div>
-        <div class="control"><input type="password" [(ngModel)]="reg.confirmpass" placeholder="Confirm password"></div>
-
+        <div class="control">
+          <input type="text" [ngClass]="{'ctrl-error' : reg.email == '' && registerValid.first}" [(ngModel)]="reg.email"
+            placeholder="Email" tabindex="1">
+          <div class="error" *ngIf="reg.email == '' && registerValid.first">
+            Email is required
+          </div>
+          <div class="error" *ngIf="!util.validateEmail(reg.email) && registerValid.first">
+            Example: John@example.com
+          </div>
+        </div>
+        <div class="control">
+          <input type="password" [ngClass]="{'ctrl-error' : reg.password == '' && registerValid.first}"
+            [(ngModel)]="reg.password" placeholder="password">
+          <div class="error" *ngIf="reg.password == '' && registerValid.first">
+            Password is required
+          </div>
+        </div>
+        <div class="control">
+          <input type="password" [ngClass]="{'ctrl-error' : reg.confirmpass == '' && registerValid.first}"
+            [(ngModel)]="reg.confirmpass" placeholder="Confirm password">
+          <div class="error" *ngIf="reg.confirmpass == '' && registerValid.first">
+            Confirm password is required
+          </div>
+        </div>
+        <div class="error" *ngIf="reg.confirmpass !== reg.password && registerValid.first">
+          Passwords must be the same
+        </div>
         <button class="btn" (click)="registerForm()">Next</button>
       </div>
 
@@ -43,34 +66,58 @@
         <h2 class="personal">Personal information</h2>
         <div class="control  first"> <input type="text" name="name" [(ngModel)]="reg.name" placeholder="Name"
             tabindex="1">
+          <div class="error" *ngIf="reg.name == '' && registerValid.sec">
+            Name is required
+          </div>
         </div>
         <div class="control second"> <input type="text" name="last_name" [(ngModel)]="reg.last_name"
-            placeholder="Last Name" tabindex="1"></div>
-        <div class="control first"> <input type="number" [(ngModel)]="reg.body_weight" placeholder="Body Weight (lbs)"
-            tabindex="1"></div>
-        <div class="control second"><input type="text" [(ngModel)]="reg.cell_phone" placeholder="Phone"></div>
+            placeholder="Last Name" tabindex="1">
+          <div class="error" *ngIf="reg.last_name == '' && registerValid.sec">
+            Last name is required
+          </div>
+        </div>
+        <div class="control first"> <input type="number" min="0" [(ngModel)]="reg.body_weight" placeholder="Body Weight (lbs)"
+            tabindex="1">
+          <div class="error" *ngIf="reg.body_weight == null && registerValid.sec">
+            Body weigth is required
+          </div>
+          <div class="error" *ngIf="reg.body_weight <= 0 && registerValid.sec">
+              Body weight can't be less than or equal to 0
+            </div>
+        </div>
+        <div class="control second">
+          <input type="text" [(ngModel)]="reg.cell_phone" placeholder="Phone">
+          <div class="error" *ngIf="reg.cell_phone == '' && registerValid.sec">
+            Cell phone is required
+          </div>
+        </div>
         <h2 class="address">Address</h2>
 
-        <div class="control  first"> <input type="text" [(ngModel)]="reg.address" placeholder="Address"></div>
+        <div class="control  first"> 
+          <input type="text" [(ngModel)]="reg.address" placeholder="Address">
+          <div class="error" *ngIf="reg.address == '' && registerValid.sec">
+            Address is required
+          </div>
+        </div>
         <div class="control second"> <input type="text" [(ngModel)]="reg.zipcode" placeholder="Zip Code"></div>
         <div class="control first"> <input type="text" [(ngModel)]="reg.country" placeholder="Country"></div>
         <div class="control second"> <input type="text" [(ngModel)]="reg.state" placeholder="State"></div>
         <div class="control first"> <input type="text" [(ngModel)]="reg.city" placeholder="City"></div>
-  
+
         <button class="btn first" (click)="formOpen('register')">back</button> <button class="btn second"
           (click)="registerFinish()">Register</button>
       </div>
-      
 
-    
-  </div>
-</ng-container>
 
-<ng-container *ngIf="action=='seatsError'">
-  <div class="error">
-    Capacity of seats insuficient
-  </div>
 
-</ng-container>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="action=='seatsError'">
+    <div class="error">
+      Capacity of seats insuficient
+    </div>
+
+  </ng-container>
 
 </div>
